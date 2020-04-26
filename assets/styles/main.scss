@@ -16,10 +16,9 @@
 
 .bl_headerNav {
     display: flex;
-  }
+}
   
 .bl_headerNav_item {
-    flex-grow: 1;
 
     &:last-child {
         content: none;
@@ -58,9 +57,10 @@
 //---
 // Container
 $breakPoints: (
-    'md': 'screen and (min-width: 768px)'
+    'github-middle': 'screen and (min-width: 1012px)',
+    'github-small': 'screen and (min-width: 544px)'
 ) !default;
-@mixin mediaQuery($breakPoint: md) {
+@mixin mediaQuery($breakPoint: github-middle) {
     @media #{map-get($breakPoints, $breakPoint)} {
         @content
     }
