@@ -1,5 +1,16 @@
 ﻿<template>
-  <div class="container">
+  <div>
+    <div class="ly_header">
+      <div class="ly_header_inner">
+        <nav>
+          <ul class="bl_headerNav">
+            <li class="bl_headerNav_item">
+              <a class="bl_headerNav_link" href="#">私たちの特徴</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
     <div>
       <nav class="bl_tabNav">
         <ul class="bl_tabNav_inner">
