@@ -1,6 +1,7 @@
 ﻿<template>
   <div>
     <Header />
+    <Contents />
     <div>
       <nav class="bl_tabNav">
         <ul class="bl_tabNav_inner">
@@ -37,11 +38,12 @@
 
 <script>
 import Header from '~/components/Header.vue'
-// import Logo from '~/components/Logo.vue'
+import Contents from '~/components/Contents.vue'
 
 export default {
   components: {
-    Header
+    Header,
+    Contents
   }
 }
 </script>
