@@ -1,10 +1,6 @@
 <template>
   <div class="ly_cont ly_cont__col">
-    <aside class="ly_cont_side">
-      <h2 class="el_lv4Heading">
-        4/27
-      </h2>
-    </aside>
+    <Aside />
     <main class="ly_cont_main">
       <article>
         aaa
@@ -12,3 +8,23 @@
     </main>
   </div>
 </template>
+<script>
+import Aside from '~/components/Aside.vue'
+
+export default {
+  components: {
+    Aside
+  }
+}
+</script>
+<style lang="scss">
+.ly_cont {
+  &.ly_cont__col {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.ly_cont_main {
+  flex: 1;
+}
+</style>
