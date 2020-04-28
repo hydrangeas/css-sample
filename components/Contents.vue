@@ -19,6 +19,11 @@ export default {
 </script>
 <style lang="scss">
 .ly_cont {
+  max-width: 1010px;
+  padding: 60px 15px;
+  margin-right: auto;
+  margin-left: auto;
+
   &.ly_cont__col {
     display: flex;
     justify-content: space-between;
