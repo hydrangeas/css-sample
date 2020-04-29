@@ -28,9 +28,11 @@
         <!-- /bl_tabNav_inner -->
       </nav>
       <!-- /bl_tabNav -->
-      <article>
-        aaa
-      </article>
+      <div class="ly_milling_activity">
+        <h4 class="el_milling_activity_header">
+          Milling Activity
+        </h4>
+      </div>
     </div>
   </div>
 </template>
