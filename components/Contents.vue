@@ -25,7 +25,9 @@
             </a>
           </li>
         </ul>
+        <!-- /bl_tabNav_inner -->
       </nav>
+      <!-- /bl_tabNav -->
       <article>
         aaa
       </article>
@@ -92,7 +94,7 @@ $breakPoints: (
   padding-bottom: 10px;
   padding-left: 10px;
   margin-bottom: 10px;
-  border-bottom: 4px solid #efefef;
+  border-bottom: 2px solid #efefef;
   color: #777;
   text-decoration: none;
   transition: 0.25s;
