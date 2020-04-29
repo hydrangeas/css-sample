@@ -3,8 +3,3 @@
     <nuxt />
   </div>
 </template>
-
-<style>
-* {
-}
-</style>

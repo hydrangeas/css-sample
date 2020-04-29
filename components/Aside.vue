@@ -63,6 +63,6 @@
 }
 .el_score {
   font-family: 'Abril Fatface', cursive;
-  font-size: 9em;
+  font-size: 8em;
 }
 </style>
