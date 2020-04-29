@@ -1,7 +1,7 @@
 <template>
   <aside class="ly_cont_side">
     <h2 class="el_lv4Heading">
-      4 / 27
+      Apr 27, 2020
     </h2>
     <div class="ly_score_square">
       <div class="el_score">
@@ -11,6 +11,7 @@
   </aside>
 </template>
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 .ly_cont_side {
   flex: 0 0 260px;
   margin-right: 3.25203%;
@@ -26,12 +27,14 @@
   margin-left: auto;
   margin-right: auto;
   // 枠
-  border: 1px solid gray;
+  border: 1px solid #e1e4e8;
   // 内部データのレイアウト指定
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .el_score {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 7em;
 }
 </style>
