@@ -157,6 +157,7 @@ $breakPoints: (
     // アクティビティリストの最後にメッセージを入れる
     &:last-of-type {
       &::after {
+        font-size: 0.8em;
         content: 'Seeing something unexpected? Please contact us.';
       }
     }
