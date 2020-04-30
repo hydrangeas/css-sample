@@ -14,7 +14,14 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { href: 'https://fonts.googleapis.com/icon?family=Material+Icons', rel: 'stylesheet' },
+      { href: 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css', rel: 'stylesheet' }
+    ],
+    script: [
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js' }
+    ]
   },
   /*
    ** Customize the progress-bar color

@@ -27,6 +27,7 @@
         </ul>
         <!-- /bl_tabNav_inner -->
       </nav>
+      <Heatmap />
       <!-- /bl_tabNav -->
       <div class="ly_milling_activity">
         <h4 class="el_milling_activity_header">
@@ -65,10 +66,12 @@
 </template>
 <script>
 import Aside from '~/components/Aside.vue'
+import Heatmap from '~/components/Heatmap.vue'
 
 export default {
   components: {
-    Aside
+    Aside,
+    Heatmap
   }
 }
 </script>
