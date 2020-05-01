@@ -1,12 +1,21 @@
 <template>
-  <div style="height:400px; width:800px">
-    <canvas id="heatMap"></canvas>
+  <div style="position: relative; width:100%">
+    <canvas id="heatMap" />
   </div>
 </template>
 
 <script>
-const mapHeight = 20
-const mapWidth = 40
+const mapHeight = 48
+const mapWidth = 7
+
+// データのランダム生成
+const datalist = (function() {
+  const dlist = []
+  for (let i = 0; i < mapHeight * mapWidth; i++) {
+    dlist.push(Math.random())
+  }
+  return dlist
+})()
 
 // データセットの生成
 const generateDatasets = function() {
@@ -16,18 +25,28 @@ const generateDatasets = function() {
       data: new Array(mapWidth).fill(1),
       borderWidth: 0.2,
       borderColor: '#FFFFFF',
-      backgroundColor: 'skyblue'
+      backgroundColor: generateColor(i)
     })
   }
   return datasets
 }
 
+// 色配列の生成
+const generateColor = function(y) {
+  const datasetColors = []
+  for (let x = 0; x < mapWidth; x++) {
+    const opa = (
+      datalist[x + (mapHeight - y - 1) * mapWidth] * 0.7 +
+      0.3
+    ).toFixed(2)
+    datasetColors.push('rgba(135,206,235,' + opa + ')')
+  }
+  return datasetColors
+}
+
 // データラベルの生成
 const generateLabels = function() {
-  const labels = []
-  for (let i = 1; i < mapWidth + 1; i++) {
-    labels.push(i)
-  }
+  const labels = ['', 'Mon', '', 'Wed', '', 'Fri', '']
   return labels
 }
 export default {
@@ -38,14 +57,17 @@ export default {
   mounted() {
     const ctx = document.getElementById('heatMap').getContext('2d')
     const heatMap = new Chart(ctx, { // eslint-disable-line
-      type: 'bar',
+      type: 'horizontalBar',
       data: {
         datasets: generateDatasets(),
         labels: generateLabels()
       },
       options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 48 / 8,
         title: {
-          display: true,
+          display: false,
           text: 'Heat Map Sample',
           fontSize: 18
         },
@@ -59,20 +81,6 @@ export default {
           xAxes: [
             {
               gridLines: {
-                color: '#FFFFFF'
-              },
-              barPercentage: 0.99,
-              categoryPercentage: 0.99,
-              stacked: true,
-              ticks: {
-                min: 0,
-                display: false
-              }
-            }
-          ],
-          yAxes: [
-            {
-              gridLines: {
                 color: '#FFFFFF',
                 zeroLineWidth: 0
               },
@@ -80,10 +88,41 @@ export default {
               ticks: {
                 min: 0,
                 stepSize: 1,
-                display: false
+                display: false,
+                padding: 0
+              }
+            }
+          ],
+          yAxes: [
+            {
+              gridLines: {
+                color: '#FFFFFF'
+              },
+              barPercentage: 0.99,
+              categoryPercentage: 0.99,
+              stacked: true,
+              ticks: {
+                min: 0,
+                display: true
               }
             }
           ]
+        },
+        tooltips: {
+          mode: 'point',
+          callbacks: {
+            title(tooltipItems, data) {
+              const x = tooltipItems[0].datasetIndex
+              const y = mapWidth - tooltipItems[0].index - 1
+              return x + ' x ' + y + ': '
+            },
+            label(tooltipItem, data) {
+              const x = tooltipItem.datasetIndex
+              const y = mapWidth - tooltipItem.index - 1
+              const val = datalist[x + y * mapHeight]
+              return 'dataVal - ' + val
+            }
+          }
         }
       }
     })
