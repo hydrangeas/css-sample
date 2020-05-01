@@ -27,7 +27,9 @@
         </ul>
         <!-- /bl_tabNav_inner -->
       </nav>
-      <Heatmap />
+      <div class="ly_heatmap">
+        <Heatmap />
+      </div>
       <!-- /bl_tabNav -->
       <div class="ly_milling_activity">
         <h4 class="el_milling_activity_header">
@@ -146,9 +148,13 @@ $breakPoints: (
     pointer-events: none;
   }
 }
+// heatmap
+.ly_heatmap {
+  margin-top: 20px;
+}
 // for activity control
 .ly_milling_activity {
-  margin-top: 40px;
+  margin-top: 20px;
 
   .ly_milling_activity_monthly {
     border-top: 1px solid #696969;
