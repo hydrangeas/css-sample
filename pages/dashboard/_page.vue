@@ -15,16 +15,13 @@ export default {
     Contents
   },
   data() {
-    return {
-      page1: this.$route.params.page
-    }
+    return {}
   },
   validate({ params }) {
-    // eslint-disable-next-line
-    console.dir(params)
     return (
-      ['', 'overview', 'errors', 'maintenances', 'badges'].includes(
-        params.page
+      !params.params ||
+      ['overview', 'errors', 'maintenances', 'badges'].includes(
+        params.page.toLowerCase()
       ) >= 0
     )
   }

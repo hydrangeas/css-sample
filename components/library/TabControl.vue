@@ -1,25 +1,8 @@
 <template>
   <nav class="bl_tabNav">
     <ul class="bl_tabNav_inner">
-      <li>
-        <span class="bl_tabNav_link is_active">
-          Overview
-        </span>
-      </li>
-      <li>
-        <a class="bl_tabNav_link" href="#">
-          Errors
-        </a>
-      </li>
-      <li>
-        <a class="bl_tabNav_link" href="#">
-          Maintenances
-        </a>
-      </li>
-      <li>
-        <a class="bl_tabNav_link" href="#">
-          Badges
-        </a>
+      <li v-for="(item, index) in items" :key="index">
+        <tab-control-item :title="item" />
       </li>
     </ul>
     <!-- /bl_tabNav_inner -->
@@ -27,7 +10,24 @@
 </template>
 
 <script>
-export default {}
+import TabControlItem from '~/components/library/TabControlItem.vue'
+
+export default {
+  components: {
+    TabControlItem
+  },
+  props: {},
+  data() {
+    return {
+      items: ['Overview', 'Errors', 'Maintenances', 'Badges']
+    }
+  },
+  watch: {
+    currentPage(value) {
+      this.createData()
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -59,30 +59,6 @@ $breakPoints: (
     justify-content: flex-start;
     margin-bottom: 0;
     white-space: nowrap;
-  }
-}
-.bl_tabNav_link {
-  display: inline-block;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  margin-bottom: 10px;
-  border-bottom: 2px solid #efefef;
-  color: #777;
-  text-decoration: none;
-  transition: 0.25s;
-  font-size: 0.8em;
-
-  &:focus,
-  &:hover {
-    border-bottom-color: currentColor;
-    color: #e25c00;
-    opacity: 0.75;
-  }
-  &.is_active {
-    border-bottom-color: currentColor;
-    color: #e25c00;
-    pointer-events: none;
   }
 }
 </style>

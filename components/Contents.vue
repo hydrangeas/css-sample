@@ -52,7 +52,8 @@ export default {
     Aside,
     Heatmap,
     TabControl
-  }
+  },
+  props: {}
 }
 </script>
 <style lang="scss">
