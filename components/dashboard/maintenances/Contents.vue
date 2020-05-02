@@ -9,7 +9,7 @@
       <!-- /bl_tabNav -->
       <div class="ly_activity">
         <h4 class="el_activity_header">
-          Milling Activity
+          Maintenance Activity
         </h4>
         <!-- /el_activity_header -->
         <div class="ly_activity_monthly">
