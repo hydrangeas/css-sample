@@ -78,10 +78,10 @@
   margin-top: 20px;
 }
 // for activity control
-.ly_milling_activity {
+.ly_activity {
   margin-top: 20px;
 
-  .ly_milling_activity_monthly {
+  .ly_activity_monthly {
     border-top: 1px solid #696969;
 
     // アクティビティリストの最初だけマージンを確保する
@@ -95,7 +95,7 @@
         content: 'Seeing something unexpected? Please contact us.';
       }
     }
-    .el_milling_activity_monthly_header {
+    .el_activity_monthly_header {
       // 少し小さめに表示
       font-size: 0.8em;
       color: #ffffff;
@@ -107,7 +107,7 @@
     }
   }
 
-  .ly_milling_activity_item {
+  .ly_activity_item {
     font-size: 0.9em;
     // 線を引くために右寄せ
     margin-left: 25px;
