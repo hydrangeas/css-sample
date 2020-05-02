@@ -69,6 +69,7 @@ export default {
         labels: generateLabels()
       },
       options: {
+        animation: false,
         responsive: true,
         maintainAspectRatio: true,
         aspectRatio: 48 / 8,
@@ -79,9 +80,6 @@ export default {
         },
         legend: {
           display: false
-        },
-        animation: {
-          duration: 0
         },
         scales: {
           xAxes: [
