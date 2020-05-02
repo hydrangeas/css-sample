@@ -25,7 +25,9 @@ const generateDatasets = function() {
       data: new Array(mapWidth).fill(1),
       borderWidth: 0.2,
       borderColor: '#FFFFFF',
-      backgroundColor: generateColor(i)
+      backgroundColor: generateColor(i),
+      hoverBackgroundColor: generateColor(i),
+      hoverBorderColor: new Array(mapWidth).fill('#FFFFFF')
     })
   }
   return datasets
