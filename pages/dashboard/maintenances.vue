@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div>
     <Header />
     <Contents />
@@ -7,12 +7,15 @@
 
 <script>
 import Header from '~/components/Header.vue'
-import Contents from '~/components/dashboard/overview/Contents'
+import Contents from '~/components/dashboard/maintenances/Contents.vue'
 
 export default {
   components: {
     Header,
     Contents
+  },
+  data() {
+    return {}
   }
 }
 </script>

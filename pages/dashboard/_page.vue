@@ -7,7 +7,7 @@
 
 <script>
 import Header from '~/components/Header.vue'
-import Contents from '~/components/Contents.vue'
+import Contents from '~/components/dashboard/overview/Contents'
 
 export default {
   components: {
@@ -18,12 +18,13 @@ export default {
     return {}
   },
   validate({ params }) {
-    return (
-      !params.params ||
-      ['overview', 'errors', 'maintenances', 'badges'].includes(
-        params.page.toLowerCase()
-      ) >= 0
-    )
+    return true
+    // return (
+    //   !params.params ||
+    //   ['overview', 'errors', 'maintenances', 'badges'].includes(
+    //     params.page.toLowerCase()
+    //   ) >= 0
+    // )
   }
 }
 </script>

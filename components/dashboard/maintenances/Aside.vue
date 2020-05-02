@@ -7,7 +7,7 @@
       <div class="ly_score_container">
         <div class="el_badge" />
         <div class="el_score">
-          19
+          20
         </div>
       </div>
     </div>

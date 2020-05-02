@@ -17,13 +17,15 @@ export default {
       type: String,
       require: true,
       default: ''
+    },
+    isActive: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
-      linkTo: '/dashboard/' + capitalizeFirstLetter(this.title.toLowerCase()),
-      isActive:
-        this.title.toLowerCase() === this.$route.params.page.toLowerCase()
+      linkTo: '/dashboard/' + capitalizeFirstLetter(this.title.toLowerCase())
     }
   }
 }
