@@ -9,15 +9,18 @@ const mapHeight = 48
 const mapWidth = 7
 
 // データのランダム生成
+// TODO: propsへ入れ、外部から受け渡すことができるようにする
 const datalist = (function() {
   const dlist = []
   for (let i = 0; i < mapHeight * mapWidth; i++) {
-    dlist.push(Math.random())
+    // dlist.push(Math.random())
+    dlist.push((0.01 * i).toFixed(2))
   }
   return dlist
 })()
 
 // データセットの生成
+// TODO: methodsへ入れる
 const generateDatasets = function() {
   const datasets = []
   for (let i = 0; i < mapHeight; i++) {
@@ -34,6 +37,7 @@ const generateDatasets = function() {
 }
 
 // 色配列の生成
+// TODO: methodsへ入れ、propsのdlistを参照する
 const generateColor = function(y) {
   const datasetColors = []
   for (let x = 0; x < mapWidth; x++) {
