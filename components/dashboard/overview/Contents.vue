@@ -134,7 +134,7 @@ export default {
       // Sun -36
       teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
       // Sun -48
-      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 20)
+      teeth.push(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
       return teeth
     },
     getTeethLabel() {},

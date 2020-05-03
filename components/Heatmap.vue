@@ -127,21 +127,20 @@ export default {
       let opa = 0
       for (let y = 0; y < mapHeight; y++) {
         teeth = this.heatMapSource[x + (mapWidth - y - 1) * mapHeight]
-        opa = 0
-        if (teeth >= 20) {
-          opa = 1.0
-        } else if (teeth >= 10) {
-          opa = 0.7
-        } else if (teeth >= 5) {
-          opa = 0.4
-        } else if (teeth >= 1) {
-          opa = 0.1
+        opa = 0.3
+
+        if (teeth >= 1) {
+          if (teeth >= 20) {
+            opa = 1.0
+          } else if (teeth >= 10) {
+            opa = 0.8
+          } else if (teeth >= 5) {
+            opa = 0.6
+          }
+          datasetColors.push('rgba(135,206,235,' + opa + ')')
+        } else {
+          datasetColors.push('rgba(239,239,239,' + opa + ')')
         }
-        // const opa = (
-        //   this.heatMapSource[x + (mapWidth - y - 1) * mapHeight] * 0.7 +
-        //   0.3
-        // ).toFixed(2)
-        datasetColors.push('rgba(135,206,235,' + opa + ')')
       }
       return datasetColors
     }
