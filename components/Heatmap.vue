@@ -17,7 +17,7 @@ export default {
         const dlist = []
         for (let i = 0; i < mapHeight * mapWidth; i++) {
           // dlist.push(Math.random())
-          dlist.push((0.01 * i).toFixed(2))
+          dlist.push((0.1 * i).toFixed(2))
         }
         return dlist
       }
