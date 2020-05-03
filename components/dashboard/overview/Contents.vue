@@ -80,7 +80,7 @@ export default {
     getTeeth() {
       const teeth = []
       // Sat -12
-      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      teeth.push(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0)
       // Sat -24
       teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
       // Sat -36
@@ -134,7 +134,7 @@ export default {
       // Sun -36
       teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
       // Sun -48
-      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 20)
       return teeth
     },
     getTeethLabel() {},

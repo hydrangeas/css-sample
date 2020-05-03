@@ -121,13 +121,26 @@ export default {
       }
       return datasets
     },
-    generateColor(y) {
+    generateColor(x) {
       const datasetColors = []
-      for (let x = 0; x < mapWidth; x++) {
-        const opa = (
-          this.heatMapSource[x + (mapHeight - y - 1) * mapWidth] * 0.7 +
-          0.3
-        ).toFixed(2)
+      let teeth = 0
+      let opa = 0
+      for (let y = 0; y < mapHeight; y++) {
+        teeth = this.heatMapSource[x + (mapWidth - y - 1) * mapHeight]
+        opa = 0
+        if (teeth >= 20) {
+          opa = 1.0
+        } else if (teeth >= 10) {
+          opa = 0.7
+        } else if (teeth >= 5) {
+          opa = 0.4
+        } else if (teeth >= 1) {
+          opa = 0.1
+        }
+        // const opa = (
+        //   this.heatMapSource[x + (mapWidth - y - 1) * mapHeight] * 0.7 +
+        //   0.3
+        // ).toFixed(2)
         datasetColors.push('rgba(135,206,235,' + opa + ')')
       }
       return datasetColors
