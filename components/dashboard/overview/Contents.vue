@@ -12,25 +12,13 @@
           Milling Activity
         </h4>
         <!-- /el_activity_header -->
-        <div class="ly_activity_monthly">
+        <div
+          v-for="(month, index) in targetMonths"
+          :key="index"
+          class="ly_activity_monthly"
+        >
           <div class="el_activity_monthly_header">
-            April 2020
-          </div>
-          <div class="ly_activity_item">
-            <div class="el_milling_file completed">
-              abc
-            </div>
-          </div>
-          <div class="ly_activity_item">
-            <div class="el_milling_file cancelled">
-              abc
-            </div>
-          </div>
-        </div>
-        <!-- /ly_activity_monthly -->
-        <div class="ly_activity_monthly">
-          <div class="el_activity_monthly_header">
-            March 2020
+            {{ month }}
           </div>
           <div class="ly_activity_item">
             No Milling
@@ -56,7 +44,37 @@ export default {
   props: {},
   data() {
     return {
-      currentPage: 'overview'
+      currentPage: 'overview',
+      targetMonths: this.getTargetMonths()
+    }
+  },
+  methods: {
+    getTargetMonths() {
+      const monthNames = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+      ]
+      const targetDay = new Date()
+      // eslint-disable-next-line
+      console.dir(targetDay.getMonth())
+      const targetMonths = []
+      for (let i = 0; i < 12; i++) {
+        targetMonths.push(
+          monthNames[targetDay.getMonth()] + ' ' + targetDay.getFullYear()
+        )
+        targetDay.setMonth(targetDay.getMonth() - 1)
+      }
+      return targetMonths
     }
   }
 }
