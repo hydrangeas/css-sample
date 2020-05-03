@@ -39,6 +39,15 @@
               {{ activity.file }}
             </div>
           </div>
+          <!-- 表示データがない場合、下記を表示する -->
+          <div
+            v-if="
+              getMillingActivityFilter(millingActivities, month).length === 0
+            "
+            class="ly_activity_item"
+          >
+            No Milling
+          </div>
         </div>
         <!-- /ly_activity_monthly -->
       </div>
