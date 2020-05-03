@@ -22,7 +22,7 @@
             </div>
           </div>
           <div class="ly_activity_item">
-            <div class="el_milling_file cancelled">
+            <div class="el_milling_file canceled">
               abc
             </div>
           </div>
