@@ -8,6 +8,11 @@
         <canvas id="radar"></canvas>
       </div>
     </div>
+    <div class="ly_detail_container">
+      <h4 class="el_detail_header">
+        消耗品
+      </h4>
+    </div>
   </aside>
 </template>
 <script>
@@ -61,3 +66,11 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.ly_detail_container {
+  margin: 30px 0 0 30px;
+}
+.el_detail_header {
+  font-size: 0.8em;
+}
+</style>
