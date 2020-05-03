@@ -4,7 +4,7 @@
     <div class="ly_cont_main">
       <TabControl :current-page="currentPage" />
       <div class="ly_heatmap">
-        <Heatmap />
+        <Heatmap :heat-map-source="teeth" />
       </div>
       <!-- /bl_tabNav -->
       <div class="ly_activity">
@@ -70,11 +70,74 @@ export default {
   data() {
     return {
       currentPage: 'overview',
+      teeth: this.getTeeth(),
+      teethLabel: this.getTeethLabel(),
       targetMonths: this.getTargetMonths(),
       millingActivities: this.getMillingActivity()
     }
   },
   methods: {
+    getTeeth() {
+      const teeth = []
+      // Sat -12
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Sat -24
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Sat -36
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Sat -48
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Fri -12
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Fri -24
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Fri -36
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Fri -48
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Thu -12
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Thu -24
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Thu -36
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Thu -48
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Wed -12
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Wed -24
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Wed -36
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Wed -48
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Tue -12
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Tue -24
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Tue -36
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Tue -48
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Mon -12
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Mon -24
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Mon -36
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Mon -48
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Sun -12
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Sun -24
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Sun -36
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      // Sun -48
+      teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+      return teeth
+    },
+    getTeethLabel() {},
     getMonthName(value) {
       if (value < 0 || value > 11) {
         return 'unknown'

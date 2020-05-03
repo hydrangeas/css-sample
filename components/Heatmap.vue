@@ -8,65 +8,40 @@
 const mapHeight = 48
 const mapWidth = 7
 
-// データのランダム生成
-// TODO: propsへ入れ、外部から受け渡すことができるようにする
-const datalist = (function() {
-  const dlist = []
-  for (let i = 0; i < mapHeight * mapWidth; i++) {
-    // dlist.push(Math.random())
-    dlist.push((0.01 * i).toFixed(2))
-  }
-  return dlist
-})()
-
-// データセットの生成
-// TODO: methodsへ入れる
-const generateDatasets = function() {
-  const datasets = []
-  for (let i = 0; i < mapHeight; i++) {
-    datasets.push({
-      data: new Array(mapWidth).fill(1),
-      borderWidth: 0.2,
-      borderColor: '#FFFFFF',
-      backgroundColor: generateColor(i),
-      hoverBackgroundColor: generateColor(i),
-      hoverBorderColor: new Array(mapWidth).fill('#FFFFFF')
-    })
-  }
-  return datasets
-}
-
-// 色配列の生成
-// TODO: methodsへ入れ、propsのdlistを参照する
-const generateColor = function(y) {
-  const datasetColors = []
-  for (let x = 0; x < mapWidth; x++) {
-    const opa = (
-      datalist[x + (mapHeight - y - 1) * mapWidth] * 0.7 +
-      0.3
-    ).toFixed(2)
-    datasetColors.push('rgba(135,206,235,' + opa + ')')
-  }
-  return datasetColors
-}
-
-// データラベルの生成
-const generateLabels = function() {
-  const labels = ['', 'Mon', '', 'Wed', '', 'Fri', '']
-  return labels
-}
 export default {
   components: {},
+  props: {
+    heatMapSource: {
+      type: Array,
+      default() {
+        const dlist = []
+        for (let i = 0; i < mapHeight * mapWidth; i++) {
+          // dlist.push(Math.random())
+          dlist.push((0.01 * i).toFixed(2))
+        }
+        return dlist
+      }
+    }
+  },
   data() {
     return {}
   },
+  beforeUpdate() {
+    // eslint-disable-next-line
+    console.log(this.heatMapSource)
+  },
+  updated() {
+    // eslint-disable-next-line
+    console.log(this.heatMapSource)
+  },
   mounted() {
+    const _heatMapSource = this.heatMapSource
     const ctx = document.getElementById('heatMap').getContext('2d')
     const heatMap = new Chart(ctx, { // eslint-disable-line
       type: 'horizontalBar',
       data: {
-        datasets: generateDatasets(),
-        labels: generateLabels()
+        datasets: this.generateDatasets(),
+        labels: ['', 'Mon', '', 'Wed', '', 'Fri', '']
       },
       options: {
         animation: false,
@@ -123,13 +98,40 @@ export default {
             label(tooltipItem, data) {
               const x = tooltipItem.datasetIndex
               const y = mapWidth - tooltipItem.index - 1
-              const val = datalist[x + y * mapHeight]
+              const val = _heatMapSource[x + y * mapHeight]
               return 'dataVal - ' + val
             }
           }
         }
       }
     })
+  },
+  methods: {
+    generateDatasets() {
+      const datasets = []
+      for (let i = 0; i < mapHeight; i++) {
+        datasets.push({
+          data: new Array(mapWidth).fill(1),
+          borderWidth: 0.2,
+          borderColor: '#FFFFFF',
+          backgroundColor: this.generateColor(i),
+          hoverBackgroundColor: this.generateColor(i),
+          hoverBorderColor: new Array(mapWidth).fill('#FFFFFF')
+        })
+      }
+      return datasets
+    },
+    generateColor(y) {
+      const datasetColors = []
+      for (let x = 0; x < mapWidth; x++) {
+        const opa = (
+          this.heatMapSource[x + (mapHeight - y - 1) * mapWidth] * 0.7 +
+          0.3
+        ).toFixed(2)
+        datasetColors.push('rgba(135,206,235,' + opa + ')')
+      }
+      return datasetColors
+    }
   }
 }
 </script>
