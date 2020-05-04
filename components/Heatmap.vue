@@ -21,6 +21,16 @@ export default {
         }
         return dlist
       }
+    },
+    heatMapLabel: {
+      type: Array,
+      default() {
+        const dlist = []
+        for (let i = 0; i < mapHeight * mapWidth; i++) {
+          dlist.push('Unknown date')
+        }
+        return dlist
+      }
     }
   },
   data() {
@@ -36,6 +46,7 @@ export default {
   },
   mounted() {
     const _heatMapSource = this.heatMapSource
+    const _heatMapLabel = this.heatMapLabel
     const ctx = document.getElementById('heatMap').getContext('2d')
     const heatMap = new Chart(ctx, { // eslint-disable-line
       type: 'horizontalBar',
@@ -100,7 +111,8 @@ export default {
             title(tooltipItems, data) {
               const x = tooltipItems[0].datasetIndex
               const y = mapWidth - tooltipItems[0].index - 1
-              return x + ' x ' + y + ': '
+              return _heatMapLabel[x + y * mapHeight]
+              // return x + ' x ' + y + ': '
             },
             label(tooltipItem, data) {
               const x = tooltipItem.datasetIndex
