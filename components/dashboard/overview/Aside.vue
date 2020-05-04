@@ -7,9 +7,21 @@
       <div class="ly_score_container">
         <div class="el_badge" />
         <div class="el_score">
-          19
+          {{ teethToday }}
         </div>
       </div>
     </div>
   </aside>
 </template>
+<script>
+export default {
+  props: {
+    teethToday: {
+      type: Number,
+      default() {
+        return 0
+      }
+    }
+  }
+}
+</script>

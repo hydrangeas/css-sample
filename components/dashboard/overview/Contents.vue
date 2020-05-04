@@ -1,6 +1,6 @@
 <template>
   <div class="ly_cont ly_cont__col">
-    <Aside />
+    <Aside :teeth-today="teethToday" />
     <div class="ly_cont_main">
       <TabControl :current-page="currentPage" />
       <div class="ly_heatmap">
@@ -70,6 +70,7 @@ export default {
   data() {
     return {
       currentPage: 'overview',
+      teethToday: this.getTeethToday(),
       teeth: this.getTeeth(),
       teethLabel: this.getTeethLabel(),
       targetMonths: this.getTargetMonths(),
@@ -77,6 +78,9 @@ export default {
     }
   },
   methods: {
+    getTeethToday() {
+      return 81
+    },
     getTeeth() {
       const teeth = []
       // Sat -12
