@@ -34,7 +34,7 @@
 }
 
 .ly_header_inner {
-  max-width: 1230px;
+  max-width: 1010px;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
