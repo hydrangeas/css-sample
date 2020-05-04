@@ -79,7 +79,7 @@ export default {
   },
   methods: {
     getTeethToday() {
-      return 81
+      return 20
     },
     getTeeth() {
       const teeth = []

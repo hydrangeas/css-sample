@@ -5,7 +5,7 @@
     </h2>
     <div class="ly_score_square">
       <div class="ly_score_container">
-        <div class="el_badge" />
+        <div :class="{ el_badge: teethToday >= 20 }" />
         <div class="el_score">
           {{ teethToday }}
         </div>
