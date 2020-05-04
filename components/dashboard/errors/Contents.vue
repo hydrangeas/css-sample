@@ -1,6 +1,6 @@
 <template>
   <div class="ly_cont ly_cont__col">
-    <Aside />
+    <Aside :stop-time-today="stopTimeToday" />
     <div class="ly_cont_main">
       <TabControl :current-page="currentPage" />
       <div class="ly_heatmap">
@@ -69,11 +69,15 @@ export default {
   data() {
     return {
       currentPage: 'errors',
+      stopTimeToday: this.getStopTime(),
       targetMonths: this.getTargetMonths(),
       errorHistory: this.getErrorHistory()
     }
   },
   methods: {
+    getStopTime() {
+      return 123
+    },
     getMonthName(value) {
       if (value < 0 || value > 11) {
         return 'unknown'

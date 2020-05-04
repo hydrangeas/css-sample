@@ -7,7 +7,7 @@
       <div class="ly_score_container">
         <div class="el_downtime_description" />
         <div class="el_downtime">
-          100
+          {{ stopTimeToday }}
         </div>
         <div class="el_downtime_unit" />
       </div>
@@ -15,6 +15,18 @@
   </aside>
 </template>
 
+<script>
+export default {
+  props: {
+    stopTimeToday: {
+      type: Number,
+      default() {
+        return 0
+      }
+    }
+  }
+}
+</script>
 <style lang="scss">
 .el_downtime_description {
   position: absolute;
