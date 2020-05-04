@@ -300,57 +300,58 @@ export default {
 }
 </script>
 <style lang="scss">
+@import url('https://use.fontawesome.com/releases/v5.0.6/css/all.css');
 .ly_activity {
   .ly_activity_item {
     .el_errors {
       &.fatal {
         &::before {
           position: absolute;
-          top: 14px;
-          left: -14px;
-          width: 25px;
-          height: 25px;
+          top: 20px;
+          left: -9px;
+          width: 15px;
+          height: 15px;
           border-radius: 100%;
           text-align: center;
           line-height: 25px;
 
           // 表示
           font-size: 0.8em;
-          content: '1';
-          background-color: #e1e4e8;
+          content: '';
+          background-color: crimson;
         }
       }
       &.recoverable {
         &::before {
           position: absolute;
-          top: 14px;
-          left: -14px;
-          width: 25px;
-          height: 25px;
+          top: 20px;
+          left: -9px;
+          width: 15px;
+          height: 15px;
           border-radius: 100%;
           text-align: center;
           line-height: 25px;
 
           // 表示
           font-size: 0.8em;
-          content: '2';
-          background-color: #e1e4e8;
+          content: '';
+          background-color: gold;
         }
       }
       &.resumable {
         &::before {
           position: absolute;
-          top: 14px;
-          left: -14px;
-          width: 25px;
-          height: 25px;
+          top: 20px;
+          left: -9px;
+          width: 15px;
+          height: 15px;
           border-radius: 100%;
           text-align: center;
           line-height: 25px;
 
           // 表示
           font-size: 0.8em;
-          content: '3';
+          content: '';
           background-color: #e1e4e8;
         }
       }

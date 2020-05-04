@@ -57,7 +57,7 @@
 }
 
 // for Contents
-//@import url('https://use.fontawesome.com/releases/v5.13.0/css/all.css');
+@import url('https://use.fontawesome.com/releases/v5.13.0/css/all.css');
 
 .ly_cont {
   max-width: 1010px;
@@ -133,10 +133,12 @@
           border-radius: 100%;
           text-align: center;
           line-height: 25px;
+          font-family: 'Font Awesome 5 Free';
+          font-weight: bold;
 
           // 表示
           font-size: 0.8em;
-          content: '✔';
+          content: '\f00c';
           background-color: #e1e4e8;
         }
       }
@@ -150,10 +152,12 @@
           border-radius: 100%;
           text-align: center;
           line-height: 25px;
+          font-family: 'Font Awesome 5 Free';
+          font-weight: bold;
 
           // 表示
           font-size: 0.8em;
-          content: '×';
+          content: '\f05e';
           background-color: #e1e4e8;
         }
       }
