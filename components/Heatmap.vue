@@ -88,7 +88,14 @@ export default {
           ]
         },
         tooltips: {
+          enabled: true,
           mode: 'point',
+          bodyFontFamily: "'Noto Sans JP', sans-serif",
+          custom(tooltip) {
+            if (!tooltip) return
+            // disable displaying the color box;
+            tooltip.displayColors = false
+          },
           callbacks: {
             title(tooltipItems, data) {
               const x = tooltipItems[0].datasetIndex
@@ -99,7 +106,7 @@ export default {
               const x = tooltipItem.datasetIndex
               const y = mapWidth - tooltipItem.index - 1
               const val = _heatMapSource[x + y * mapHeight]
-              return 'dataVal - ' + val
+              return val === 0 ? 'No milled' : '' + val + ' milled'
             }
           }
         }
