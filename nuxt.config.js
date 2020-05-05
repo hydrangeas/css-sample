@@ -32,6 +32,7 @@ export default {
    */
   css: [
     '~/assets/styles/reset.scss',
+    '~/assets/styles/_viewportscale.scss',
     '~/assets/styles/main.scss'
   ],
   /*
