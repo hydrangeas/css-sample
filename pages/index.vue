@@ -23,6 +23,32 @@
         </div>
       </div>
     </div>
+    <div class="ly_description">
+      <h3 class="el_description_title">
+        <span>どのような機能を使用できるか詳しく見る</span>
+      </h3>
+      <div class="bl_slogan">
+        <div class="bl_slogan_left el_left_image">
+          <img src="~static/images/landscape.jpg" />
+        </div>
+        <div class="bl_slogan_right el_right_text">
+          b
+        </div>
+      </div>
+      <div class="bl_slogan">
+        <div class="bl_slogan_left el_left_text">
+          c
+        </div>
+        <div class="bl_slogan_right el_right_image">
+          <img src="~static/images/landscape.jpg" />
+        </div>
+      </div>
+    </div>
+    <div class="ly_description el_gray">
+      <h3 class="el_description_title">
+        <span>多くのラボで信頼されている理由をご覧ください</span>
+      </h3>
+    </div>
     <Footer />
   </div>
 </template>
@@ -109,6 +135,68 @@ export default {
 
   &:first-of-type {
     padding-top: 0px;
+  }
+}
+.el_gray {
+  background-color: #efefef;
+}
+.ly_description {
+  padding: 30px 10px;
+  .el_description_title {
+    font-size: 1.2em;
+    text-align: center;
+
+    span {
+      position: relative;
+      display: inline-block;
+      transform: translateY(-20%);
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        width: 80px;
+        height: 1px;
+        background-color: currentColor;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
+.bl_slogan {
+  margin: 20px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 300px;
+
+  .bl_slogan_left {
+    &.el_left_image {
+      text-align: center;
+      flex: 2;
+      img {
+        width: 50%;
+      }
+    }
+    &.el_left_text {
+      font-size: 1.2em;
+      text-align: right;
+      flex: 3;
+    }
+  }
+  .bl_slogan_right {
+    &.el_right_image {
+      text-align: center;
+      flex: 2;
+      img {
+        width: 50%;
+      }
+    }
+    &.el_right_text {
+      font-size: 1.2em;
+      flex: 3;
+    }
   }
 }
 </style>
