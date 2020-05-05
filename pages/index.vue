@@ -254,9 +254,10 @@ export default {
   }
 }
 .bl_cardUnit {
-  margin: 60px auto 0 auto;
+  margin-top: 60px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   .bl_cardUnit__col4 {
     margin-bottom: -30px;
   }
