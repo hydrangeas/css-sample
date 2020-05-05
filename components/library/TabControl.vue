@@ -46,16 +46,7 @@ export default {
 </script>
 
 <style lang="scss">
-// for Tab Control
-$breakPoints: (
-  'github-middle': 'screen and (min-width: 1012px)',
-  'github-small': 'screen and (min-width: 544px)'
-) !default;
-@mixin mediaQuery($breakPoint: github-middle) {
-  @media #{map-get($breakPoints, $breakPoint)} {
-    @content;
-  }
-}
+@import '~assets/styles/main.scss';
 
 .bl_tabNav {
   @include mediaQuery() {
