@@ -48,6 +48,60 @@
       <h3 class="el_description_title">
         <span>多くのラボで信頼されている理由をご覧ください</span>
       </h3>
+      <div class="bl_cardUnit bl_cardUnit__col4">
+        <div class="bl_card">
+          <figure class="bl_card_imgWrapper">
+            <img src="~static/images/landscape.jpg" alt="aa" />
+          </figure>
+          <div class="bl_card_body">
+            <h3 class="bl_card_ttl">
+              title
+            </h3>
+            <p class="bl_card_txt">
+              text
+            </p>
+          </div>
+        </div>
+        <div class="bl_card">
+          <figure class="bl_card_imgWrapper">
+            <img src="~static/images/landscape.jpg" alt="aa" />
+          </figure>
+          <div class="bl_card_body">
+            <h3 class="bl_card_ttl">
+              title
+            </h3>
+            <p class="bl_card_txt">
+              text
+            </p>
+          </div>
+        </div>
+        <div class="bl_card">
+          <figure class="bl_card_imgWrapper">
+            <img src="~static/images/landscape.jpg" alt="aa" />
+          </figure>
+          <div class="bl_card_body">
+            <h3 class="bl_card_ttl">
+              title
+            </h3>
+            <p class="bl_card_txt">
+              text
+            </p>
+          </div>
+        </div>
+        <div class="bl_card">
+          <figure class="bl_card_imgWrapper">
+            <img src="~static/images/landscape.jpg" alt="aa" />
+          </figure>
+          <div class="bl_card_body">
+            <h3 class="bl_card_ttl">
+              title
+            </h3>
+            <p class="bl_card_txt">
+              text
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
     <Footer />
   </div>
@@ -198,5 +252,54 @@ export default {
       flex: 3;
     }
   }
+}
+.bl_cardUnit {
+  margin: 60px auto 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  .bl_cardUnit__col4 {
+    margin-bottom: -30px;
+  }
+}
+.bl_cardUnit__col4 {
+  .bl_card {
+    width: 23%;
+    margin-right: 2%;
+    margin-bottom: 30px;
+
+    &:nth-of-type(4n) {
+      margin-right: 0;
+    }
+  }
+}
+
+.bl_card {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+.bl_card_imgWrapper {
+  position: relative;
+  padding-top: 56.25%;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+  }
+}
+.bl_card_body {
+  padding: 15px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.bl_card_ttl {
+  margin-bottom: 5px;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+.bl_card_txt {
+  color: #777;
 }
 </style>
