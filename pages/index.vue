@@ -64,7 +64,7 @@ export default {
   line-height: 1.2;
 }
 .bl_callSales {
-  margin: 40px 10px;
+  margin: 40px 0px;
 }
 .el_afterIconBtn {
   position: relative;
