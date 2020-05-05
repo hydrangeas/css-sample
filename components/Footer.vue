@@ -50,7 +50,6 @@
 .ly_footer {
   padding-top: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
   background-color: #24292e;
 }
 
@@ -60,6 +59,10 @@
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.hp_btGray {
+  border-top: 1px solid #777;
 }
 
 .bl_footerNav {
