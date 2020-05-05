@@ -131,7 +131,7 @@ export default {
   // background-color: #1034a6;
   background-position: center center;
   background-size: cover;
-  padding: 100px 0 20px 0;
+  padding: 100px 0 70px 0;
 }
 .bl_jumbotron_inner {
   width: 67%;
