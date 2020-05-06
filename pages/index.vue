@@ -1,7 +1,10 @@
 ﻿<template>
   <div>
     <Header />
-    <div class="ly_jumbotron">
+    <div
+      class="ly_jumbotron"
+      :style="{ 'background-image': 'url(/images/landscape.jpg)' }"
+    >
       <div class="bl_jumbotron_inner">
         <h1 class="bl_jumbotron_ttl">
           無停止で稼働し続けるには、道具の状態を正しく保ちます。
@@ -127,8 +130,8 @@ export default {
 @import '~assets/styles/_viewportscale.scss';
 
 .ly_jumbotron {
-  background-image: url('~static/images/landscape.jpg');
-  // background-color: #1034a6;
+  // background-image: url('~static/images/landscape.jpg');
+  background-color: #333;
   background-position: center center;
   background-size: cover;
   padding: 100px 0 70px 0;
