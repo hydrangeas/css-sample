@@ -13,9 +13,35 @@
     </div>
     <div class="ly_cont ly_cont__col">
       <aside class="ly_cont_side">
-        <h2 class="el_lv4Heading">
-          aaa
-        </h2>
+        <div class="bl_customer_logo">
+          <img src="" />
+        </div>
+        <h4 class="el_customer_attr_title">
+          お客様
+        </h4>
+        <div class="el_customer_attr_content">
+          Company, Inc.
+        </div>
+        <h4 class="el_customer_attr_title">
+          組織の規模
+        </h4>
+        <div class="el_customer_attr_content">
+          32人（内、歯科技工士8人）
+        </div>
+        <h4 class="el_customer_attr_title">
+          取り扱い
+        </h4>
+        <div class="el_customer_attr_content">
+          <div>ジルコニア</div>
+          <div>ワックスアップ</div>
+        </div>
+        <h4 class="el_customer_attr_title">
+          依頼先
+        </h4>
+        <div class="el_customer_attr_content">
+          <div>東京都新宿区..</div>
+          <div>03-..</div>
+        </div>
       </aside>
       <main class="ly_cont_main">
         <article>
@@ -54,9 +80,14 @@
         </article>
       </main>
       <aside class="ly_cont_side">
-        <h2 class="el_lv4Heading">
-          aaa
-        </h2>
+        <h4 class="el_customer_attr_title">
+          リソースダウンロード
+        </h4>
+        <ul class="bl_download_resource">
+          <li class="bl_resource">
+            <a href="#">お客様事例</a>
+          </li>
+        </ul>
       </aside>
     </div>
     <Footer />
@@ -140,6 +171,35 @@ export default {
   &:last-of-type {
     margin-right: 0;
     margin-left: 3.25203%;
+  }
+}
+.el_customer_attr_title {
+  padding-top: 20px;
+  padding-left: 10px;
+  font-size: 0.9em;
+  font-weight: 600;
+  &:first-of-type {
+    padding-top: 0px;
+  }
+}
+.el_customer_attr_content {
+  padding-top: 10px;
+  padding-left: 10px;
+  font-size: 0.9em;
+}
+.bl_download_resource {
+  padding-top: 10px;
+  padding-left: 10px;
+  list-style: none;
+}
+.bl_resource {
+  a {
+    color: #0067b8;
+    text-decoration: none;
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 </style>
