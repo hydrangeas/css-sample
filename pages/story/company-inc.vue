@@ -114,8 +114,6 @@ export default {
 @import '~assets/styles/_viewportscale.scss';
 
 .ly_jumbotron {
-  // background-image: url('~static/images/landscape.jpg');
-  background-color: #333;
   background-position: center center;
   background-size: cover;
   padding: 100px 0 100px 0;
