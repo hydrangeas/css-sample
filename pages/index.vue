@@ -52,7 +52,7 @@
         <span>多くのラボで信頼されている理由をご覧ください</span>
       </h3>
       <div class="bl_cardUnit bl_cardUnit__col4">
-        <div class="bl_card">
+        <nuxt-link to="/story/company-inc" class="bl_card">
           <figure class="bl_card_imgWrapper">
             <img src="~static/images/landscape.jpg" alt="aa" />
           </figure>
@@ -64,7 +64,7 @@
               text
             </p>
           </div>
-        </div>
+        </nuxt-link>
         <div class="bl_card">
           <figure class="bl_card_imgWrapper">
             <img src="~static/images/landscape.jpg" alt="aa" />
@@ -305,5 +305,24 @@ export default {
 }
 .bl_card_txt {
   color: #777;
+}
+a.bl_card {
+  display: block;
+  color: currentColor;
+  text-decoration: none;
+  transition: 0.25s;
+  .bl_card_ttl,
+  .bl_card_txt {
+    transition: 0.25s;
+  }
+  &:focus,
+  &:hover {
+    opacity: 0.75;
+    .bl_card_ttl,
+    .bl_card_txt {
+      color: #e25c00;
+      text-decoration: underline;
+    }
+  }
 }
 </style>
