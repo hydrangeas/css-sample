@@ -12,6 +12,173 @@
       <h4 class="el_detail_header">
         消耗品
       </h4>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          ツール #1
+        </div>
+        <div class="el_item_content">
+          012h15m / 025h00m
+        </div>
+      </div>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          ツール #2
+        </div>
+        <div class="el_item_content">
+          012h15m / 025h00m
+        </div>
+      </div>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          ツール #3
+        </div>
+        <div class="el_item_content">
+          012h15m / 025h00m
+        </div>
+      </div>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          ツール #4
+        </div>
+        <div class="el_item_content">
+          012h15m / 025h00m
+        </div>
+      </div>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          ツール #5
+        </div>
+        <div class="el_item_content">
+          012h15m / 025h00m
+        </div>
+      </div>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          ツール #6
+        </div>
+        <div class="el_item_content">
+          012h15m / 025h00m
+        </div>
+      </div>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          ツール #7
+        </div>
+        <div class="el_item_content">
+          012h15m / 025h00m
+        </div>
+      </div>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          ツール #8
+        </div>
+        <div class="el_item_content">
+          012h15m / 025h00m
+        </div>
+      </div>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          ツール #9
+        </div>
+        <div class="el_item_content">
+          012h15m / 025h00m
+        </div>
+      </div>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          ツール #10
+        </div>
+        <div class="el_item_content">
+          012h15m / 025h00m
+        </div>
+      </div>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          ツール #11
+        </div>
+        <div class="el_item_content">
+          012h15m / 025h00m
+        </div>
+      </div>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          ツール #12
+        </div>
+        <div class="el_item_content">
+          012h15m / 025h00m
+        </div>
+      </div>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          ツール #13
+        </div>
+        <div class="el_item_content">
+          012h15m / 025h00m
+        </div>
+      </div>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          ツール #14
+        </div>
+        <div class="el_item_content">
+          012h15m / 025h00m
+        </div>
+      </div>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          ツール #15
+        </div>
+        <div class="el_item_content">
+          012h15m / 025h00m
+        </div>
+      </div>
+    </div>
+    <div class="ly_detail_container">
+      <h4 class="el_detail_header">
+        日次
+      </h4>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          クリーニング
+        </div>
+        <div class="el_item_content">
+          済
+        </div>
+      </div>
+    </div>
+    <div class="ly_detail_container">
+      <h4 class="el_detail_header">
+        定期
+      </h4>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          スピンドル
+        </div>
+        <div class="el_item_content">
+          0120h15m / 2000h00m
+        </div>
+      </div>
+    </div>
+    <div class="ly_detail_container">
+      <h4 class="el_detail_header">
+        予防
+      </h4>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          自動補正
+        </div>
+        <div class="el_item_content">
+          済
+        </div>
+      </div>
+      <div class="bl_item_container">
+        <div class="el_item_title">
+          ならし運転
+        </div>
+        <div class="el_item_content">
+          未
+        </div>
+      </div>
     </div>
   </aside>
 </template>
@@ -66,11 +233,25 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .ly_detail_container {
-  margin: 30px 0 0 30px;
+  margin: 15px 30px 0 30px;
 }
 .el_detail_header {
   font-size: 0.8em;
+  font-weight: 600;
+}
+.bl_item_container {
+  display: flex;
+  margin: 5px 0;
+
+  .el_item_title {
+    font-size: 0.775rem;
+  }
+  .el_item_content {
+    flex-grow: 3;
+    text-align: right;
+    font-size: 0.775rem;
+  }
 }
 </style>

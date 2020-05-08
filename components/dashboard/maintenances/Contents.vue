@@ -17,12 +17,12 @@
             April 2020
           </div>
           <div class="ly_activity_item">
-            <div class="el_milling_file completed">
+            <div class="el_milling_file setting">
               abc
             </div>
           </div>
           <div class="ly_activity_item">
-            <div class="el_milling_file canceled">
+            <div class="el_milling_file setting">
               abc
             </div>
           </div>
