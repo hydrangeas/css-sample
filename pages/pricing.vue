@@ -5,7 +5,7 @@
       <li class="bl_price">
         <div class="bl_price_header">
           <p class="bl_price_ttl">STARTER</p>
-          <p class="bl_price_price">6,000 <span>円/月</span></p>
+          <p class="bl_price_price">6,000 <span>円/台/月</span></p>
         </div>
         <!-- /bl_price_header -->
         <div class="bl_price_body">
@@ -23,8 +23,8 @@
       </li>
       <li class="bl_price">
         <div class="bl_price_header">
-          <p class="bl_price_ttl">STARTER</p>
-          <p class="bl_price_price">6,000 <span>円/月</span></p>
+          <p class="bl_price_ttl">STANDARD</p>
+          <p class="bl_price_price">18,000 <span>円/台/月</span></p>
         </div>
         <!-- /bl_price_header -->
         <div class="bl_price_body">
@@ -42,8 +42,8 @@
       </li>
       <li class="bl_price">
         <div class="bl_price_header">
-          <p class="bl_price_ttl">STARTER</p>
-          <p class="bl_price_price">6,000 <span>円/月</span></p>
+          <p class="bl_price_ttl">ENTERPRISE</p>
+          <p class="bl_price_price"><span>要お問い合わせ</span></p>
         </div>
         <!-- /bl_price_header -->
         <div class="bl_price_body">
@@ -127,11 +127,13 @@ export default {
   }
 
   dt {
+    font-size: 0.9rem;
     padding: 5px;
     margin-bottom: 10px;
     background-color: #efefef;
   }
   dd {
+    font-size: 0.85rem;
     margin-bottom: 10px;
   }
 }
