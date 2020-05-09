@@ -1,24 +1,357 @@
 <template>
   <div>
     <Header />
-    <Contents />
+    <div class="ly_cont ly_cont__col">
+      <aside class="ly_cont_side">
+        <h2 class="el_lv4Heading">
+          Apr 27, 2020
+        </h2>
+        <div class="ly_score_square">
+          <div class="ly_score_container">
+            <div class="el_downtime_description" />
+            <div class="el_downtime">
+              {{ stopTimeToday }}
+            </div>
+            <div class="el_downtime_unit" />
+          </div>
+        </div>
+      </aside>
+      <div class="ly_cont_main">
+        <TabControl :current-page="currentPage" />
+        <div class="ly_heatmap">
+          <Heatmap
+            :heat-map-source="errorHistories"
+            :heat-map-label="historyLabel"
+          />
+        </div>
+        <!-- /bl_tabNav -->
+        <div class="ly_activity">
+          <h4 class="el_activity_header">
+            Error History
+          </h4>
+          <!-- /el_activity_header -->
+          <div
+            v-for="(month, index) in targetMonths"
+            :key="index"
+            class="ly_activity_monthly"
+          >
+            <div class="el_activity_monthly_header">
+              {{ getMonthName(month.getMonth()) + ' ' + month.getFullYear() }}
+            </div>
+            <!-- 表示付きのデータのみを抽出し、表示する -->
+            <div
+              v-for="(activity, key) in getErrorHistoryFilter(
+                errorHistory,
+                month
+              )"
+              :key="key"
+              :class="{ ly_activity_item: true }"
+            >
+              <div
+                :class="{
+                  el_errors: true,
+                  fatal: activity.type === 'fatal',
+                  recoverable: activity.type === 'recoverable',
+                  resumable: activity.type === 'resumable'
+                }"
+              >
+                {{ activity.errorId + '-' + activity.errorParameter }}
+              </div>
+            </div>
+            <!-- 表示データがない場合、下記を表示する -->
+            <div
+              v-if="getErrorHistoryFilter(errorHistory, month).length === 0"
+              class="ly_activity_item"
+            >
+              No Error
+            </div>
+          </div>
+          <!-- /ly_activity_monthly -->
+        </div>
+        <!-- /ly_activity -->
+      </div>
+    </div>
     <Footer />
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import Heatmap from '~/components/Heatmap.vue'
+import TabControl from '~/components/library/TabControl.vue'
 import Header from '~/components/Header.vue'
-import Contents from '~/components/dashboard/errors/Contents.vue'
 import Footer from '~/components/Footer'
 
 export default {
   components: {
+    Heatmap,
+    TabControl,
     Header,
-    Contents,
     Footer
   },
+  props: {},
+  async asyncData({ store }) {
+    await store.dispatch('errors/fetchErrorHistories')
+  },
   data() {
-    return {}
+    return {
+      currentPage: 'errors',
+      stopTimeToday: this.getStopTime(),
+      historyLabel: this.gethistoryLabel(),
+      targetMonths: this.getTargetMonths(),
+      errorHistory: this.getErrorHistory()
+    }
+  },
+  computed: {
+    ...mapGetters('errors', ['errorHistories'])
+  },
+  methods: {
+    getStopTime() {
+      return 123
+    },
+    gethistoryLabel() {
+      const historyLabel = []
+      // Sat
+      historyLabel.push('2020/05/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      // Fri
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      // Thu
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      // Wed
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      // Tue
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      // Mon
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      // Sun
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      historyLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
+      return historyLabel
+    },
+    getMonthName(value) {
+      if (value < 0 || value > 11) {
+        return 'unknown'
+      }
+      const monthNames = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+      ]
+      return monthNames[value]
+    },
+    getTargetMonths() {
+      const today = new Date()
+      const targetMonths = []
+      for (let i = 0; i < 12; i++) {
+        targetMonths.push(new Date(today.getFullYear(), today.getMonth() - i))
+      }
+      return targetMonths
+    },
+    getErrorHistory() {
+      const data = [
+        {
+          date: '2020/04/01 12:34:56',
+          errorId: '104F',
+          errorParameter: '0101',
+          type: 'fatal'
+        },
+        {
+          date: '2020/04/02 07:52:21',
+          errorId: '1017',
+          errorParameter: '0001',
+          type: 'resumable'
+        },
+        {
+          date: '2020/05/02 07:52:21',
+          errorId: '1017',
+          errorParameter: '0002',
+          type: 'recoverable'
+        }
+      ]
+      return data
+    },
+    getErrorHistoryFilter(array, query) {
+      return array.filter(function(item) {
+        const errorDate = new Date(item.date)
+        const queryDate = new Date(query)
+        return (
+          errorDate.getFullYear() === queryDate.getFullYear() &&
+          errorDate.getMonth() === queryDate.getMonth()
+        )
+      })
+    }
   }
 }
 </script>
+
+<style lang="scss">
+@import url('https://use.fontawesome.com/releases/v5.0.6/css/all.css');
+.ly_activity {
+  .ly_activity_item {
+    .el_errors {
+      &.fatal {
+        &::before {
+          position: absolute;
+          top: 20px;
+          left: -9px;
+          width: 15px;
+          height: 15px;
+          border-radius: 100%;
+          text-align: center;
+          line-height: 25px;
+
+          // 表示
+          font-size: 0.8em;
+          content: '';
+          background-color: crimson;
+        }
+      }
+      &.recoverable {
+        &::before {
+          position: absolute;
+          top: 20px;
+          left: -9px;
+          width: 15px;
+          height: 15px;
+          border-radius: 100%;
+          text-align: center;
+          line-height: 25px;
+
+          // 表示
+          font-size: 0.8em;
+          content: '';
+          background-color: gold;
+        }
+      }
+      &.resumable {
+        &::before {
+          position: absolute;
+          top: 20px;
+          left: -9px;
+          width: 15px;
+          height: 15px;
+          border-radius: 100%;
+          text-align: center;
+          line-height: 25px;
+
+          // 表示
+          font-size: 0.8em;
+          content: '';
+          background-color: #e1e4e8;
+        }
+      }
+    }
+  }
+}
+.el_downtime_description {
+  position: absolute;
+  top: 25px;
+  left: 10px;
+
+  &:before {
+    content: '停止時間';
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+.el_downtime {
+  color: crimson;
+  font-size: 5em;
+}
+.el_downtime_unit {
+  position: absolute;
+  bottom: 25px;
+  right: 10px;
+
+  &:before {
+    content: '分';
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+</style>
