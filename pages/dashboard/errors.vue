@@ -20,7 +20,7 @@
         <TabControl :current-page="currentPage" />
         <div class="ly_heatmap">
           <Heatmap
-            :heat-map-source="errorHistories"
+            :heat-map-source="errorCounts"
             :heat-map-label="historyLabel"
           />
         </div>
@@ -91,7 +91,7 @@ export default {
   },
   props: {},
   async asyncData({ store }) {
-    await store.dispatch('errors/fetchErrorHistories')
+    await store.dispatch('errors/fetchErrorCounts')
   },
   data() {
     return {
@@ -103,7 +103,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('errors', ['errorHistories'])
+    ...mapGetters('errors', ['errorCounts'])
   },
   methods: {
     getStopTime() {
