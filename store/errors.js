@@ -1,16 +1,21 @@
 export const state = () => ({
+  stopTime: 0,
   errorCounts: [],
   historyLabels: [],
   targetMonths: []
 })
 
 export const getters = {
+  stopTime: (state) => state.stopTime,
   errorCounts: (state) => state.errorCounts,
   historyLabels: (state) => state.historyLabels,
   targetMonths: (state) => state.targetMonths
 }
 
 export const mutations = {
+  updateStopTime(state, { stopTime }) {
+    state.stopTime = stopTime
+  },
   addErrorCounts(state, { errorCounts }) {
     state.errorCounts = errorCounts
   },
@@ -23,6 +28,9 @@ export const mutations = {
 }
 
 export const actions = {
+  fetchStopTime({ commit }) {
+    commit('updateStopTime', { stopTime: 234 })
+  },
   fetchErrorCounts({ commit }) {
     const counts = []
     // Sat -12

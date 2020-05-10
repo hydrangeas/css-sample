@@ -10,7 +10,7 @@
           <div class="ly_score_container">
             <div class="el_downtime_description" />
             <div class="el_downtime">
-              {{ stopTimeToday }}
+              {{ stopTime }}
             </div>
             <div class="el_downtime_unit" />
           </div>
@@ -91,6 +91,7 @@ export default {
   },
   props: {},
   async asyncData({ store }) {
+    await store.dispatch('errors/fetchStopTime')
     await store.dispatch('errors/fetchErrorCounts')
     await store.dispatch('errors/fetchHistoryLabels')
     await store.dispatch('errors/fetchTargetMonths')
@@ -98,17 +99,18 @@ export default {
   data() {
     return {
       currentPage: 'errors',
-      stopTimeToday: this.getStopTime(),
       errorHistory: this.getErrorHistory()
     }
   },
   computed: {
-    ...mapGetters('errors', ['errorCounts', 'historyLabels', 'targetMonths'])
+    ...mapGetters('errors', [
+      'stopTime',
+      'errorCounts',
+      'historyLabels',
+      'targetMonths'
+    ])
   },
   methods: {
-    getStopTime() {
-      return 123
-    },
     getErrorHistory() {
       const data = [
         {
