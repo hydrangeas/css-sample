@@ -41,7 +41,7 @@
             <!-- 表示付きのデータのみを抽出し、表示する -->
             <div
               v-for="(activity, key) in getErrorHistoryFilter(
-                errorHistory,
+                errorHistories,
                 month
               )"
               :key="key"
@@ -60,7 +60,7 @@
             </div>
             <!-- 表示データがない場合、下記を表示する -->
             <div
-              v-if="getErrorHistoryFilter(errorHistory, month).length === 0"
+              v-if="getErrorHistoryFilter(errorHistories, month).length === 0"
               class="ly_activity_item"
             >
               No Error
@@ -95,11 +95,11 @@ export default {
     await store.dispatch('errors/fetchErrorCounts')
     await store.dispatch('errors/fetchHistoryLabels')
     await store.dispatch('errors/fetchTargetMonths')
+    await store.dispatch('errors/fetchErrorHistories')
   },
   data() {
     return {
-      currentPage: 'errors',
-      errorHistory: this.getErrorHistory()
+      currentPage: 'errors'
     }
   },
   computed: {
@@ -107,33 +107,11 @@ export default {
       'stopTime',
       'errorCounts',
       'historyLabels',
-      'targetMonths'
+      'targetMonths',
+      'errorHistories'
     ])
   },
   methods: {
-    getErrorHistory() {
-      const data = [
-        {
-          date: '2020/04/01 12:34:56',
-          errorId: '104F',
-          errorParameter: '0101',
-          type: 'fatal'
-        },
-        {
-          date: '2020/04/02 07:52:21',
-          errorId: '1017',
-          errorParameter: '0001',
-          type: 'resumable'
-        },
-        {
-          date: '2020/05/02 07:52:21',
-          errorId: '1017',
-          errorParameter: '0002',
-          type: 'recoverable'
-        }
-      ]
-      return data
-    },
     getErrorHistoryFilter(array, query) {
       return array.filter(function(item) {
         const errorDate = new Date(item.date)

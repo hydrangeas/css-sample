@@ -2,14 +2,16 @@ export const state = () => ({
   stopTime: 0,
   errorCounts: [],
   historyLabels: [],
-  targetMonths: []
+  targetMonths: [],
+  errorHistories: []
 })
 
 export const getters = {
   stopTime: (state) => state.stopTime,
   errorCounts: (state) => state.errorCounts,
   historyLabels: (state) => state.historyLabels,
-  targetMonths: (state) => state.targetMonths
+  targetMonths: (state) => state.targetMonths,
+  errorHistories: (state) => state.errorHistories
 }
 
 export const mutations = {
@@ -24,6 +26,9 @@ export const mutations = {
   },
   addTargetMonths(state, { targetMonths }) {
     state.targetMonths = targetMonths
+  },
+  updateErrorHistories(state, { errorHistories }) {
+    state.errorHistories = errorHistories
   }
 }
 
@@ -190,5 +195,28 @@ export const actions = {
   },
   fetchTargetMonths({ commit }) {
     commit('addTargetMonths', { targetMonths: this.$getTargetMonths() })
+  },
+  fetchErrorHistories({ commit }) {
+    const history = [
+      {
+        date: '2020/04/01 12:34:56',
+        errorId: '104F',
+        errorParameter: '0101',
+        type: 'fatal'
+      },
+      {
+        date: '2020/04/02 07:52:21',
+        errorId: '1017',
+        errorParameter: '0001',
+        type: 'resumable'
+      },
+      {
+        date: '2020/05/02 07:52:21',
+        errorId: '1017',
+        errorParameter: '0002',
+        type: 'recoverable'
+      }
+    ]
+    commit('updateErrorHistories', { errorHistories: history })
   }
 }
