@@ -36,7 +36,7 @@
             class="ly_activity_monthly"
           >
             <div class="el_activity_monthly_header">
-              {{ getMonthName(month.getMonth()) + ' ' + month.getFullYear() }}
+              {{ $getMonthName(month.getMonth()) + ' ' + month.getFullYear() }}
             </div>
             <!-- 表示付きのデータのみを抽出し、表示する -->
             <div
@@ -93,49 +93,21 @@ export default {
   async asyncData({ store }) {
     await store.dispatch('errors/fetchErrorCounts')
     await store.dispatch('errors/fetchHistoryLabels')
+    await store.dispatch('errors/fetchTargetMonths')
   },
   data() {
     return {
       currentPage: 'errors',
       stopTimeToday: this.getStopTime(),
-      targetMonths: this.getTargetMonths(),
       errorHistory: this.getErrorHistory()
     }
   },
   computed: {
-    ...mapGetters('errors', ['errorCounts', 'historyLabels'])
+    ...mapGetters('errors', ['errorCounts', 'historyLabels', 'targetMonths'])
   },
   methods: {
     getStopTime() {
       return 123
-    },
-    getMonthName(value) {
-      if (value < 0 || value > 11) {
-        return 'unknown'
-      }
-      const monthNames = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December'
-      ]
-      return monthNames[value]
-    },
-    getTargetMonths() {
-      const today = new Date()
-      const targetMonths = []
-      for (let i = 0; i < 12; i++) {
-        targetMonths.push(new Date(today.getFullYear(), today.getMonth() - i))
-      }
-      return targetMonths
     },
     getErrorHistory() {
       const data = [

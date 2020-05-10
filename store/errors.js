@@ -1,11 +1,13 @@
 export const state = () => ({
   errorCounts: [],
-  historyLabels: []
+  historyLabels: [],
+  targetMonths: []
 })
 
 export const getters = {
   errorCounts: (state) => state.errorCounts,
-  historyLabels: (state) => state.historyLabels
+  historyLabels: (state) => state.historyLabels,
+  targetMonths: (state) => state.targetMonths
 }
 
 export const mutations = {
@@ -14,6 +16,9 @@ export const mutations = {
   },
   addHistoryLabels(state, { historyLabels }) {
     state.historyLabels = historyLabels
+  },
+  addTargetMonths(state, { targetMonths }) {
+    state.targetMonths = targetMonths
   }
 }
 
@@ -174,5 +179,8 @@ export const actions = {
     historyLabel.push('2020/04/19', '2020/04/26', '2020/05/03', '2020/05/10')
 
     commit('addHistoryLabels', { historyLabels: historyLabel })
+  },
+  fetchTargetMonths({ commit }) {
+    commit('addTargetMonths', { targetMonths: this.$getTargetMonths() })
   }
 }

@@ -38,7 +38,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    { src: '@/plugins/inject-getMonthName', ssr: false },
+    '~/plugins/inject-getMonthName.js',
+    '~/plugins/inject-getTargetMonths.js'
+  ],
   /*
    ** Nuxt.js dev-modules
    */
