@@ -18,7 +18,7 @@
           class="ly_activity_monthly"
         >
           <div class="el_activity_monthly_header">
-            {{ getMonthName(month.getMonth()) + ' ' + month.getFullYear() }}
+            {{ $getMonthName(month.getMonth()) + ' ' + month.getFullYear() }}
           </div>
           <!-- 表示付きのデータのみを抽出し、表示する -->
           <div
@@ -235,26 +235,6 @@ export default {
       teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
       teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
       return teethLabel
-    },
-    getMonthName(value) {
-      if (value < 0 || value > 11) {
-        return 'unknown'
-      }
-      const monthNames = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December'
-      ]
-      return monthNames[value]
     },
     getTargetMonths() {
       const today = new Date()
