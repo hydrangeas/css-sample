@@ -8,7 +8,7 @@
         </h2>
         <div class="ly_score_square">
           <div class="ly_score_container">
-            <div :class="{ el_badge: teethToday >= 20 }" />
+            <div :class="{ el_badge: teeth >= 20 }" />
             <div class="el_score">
               {{ teeth }}
             </div>
@@ -94,7 +94,6 @@ export default {
   data() {
     return {
       currentPage: 'overview',
-      teethToday: this.getTeethToday(),
       teethHistories: this.getTeeth(),
       teethLabel: this.getTeethLabel(),
       targetMonths: this.getTargetMonths(),
@@ -105,9 +104,6 @@ export default {
     ...mapGetters('teeth', ['teeth'])
   },
   methods: {
-    getTeethToday() {
-      return 20
-    },
     getTeeth() {
       const teeth = []
       // Sat -12
