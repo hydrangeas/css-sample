@@ -40,7 +40,7 @@
             </div>
             <!-- 表示付きのデータのみを抽出し、表示する -->
             <div
-              v-for="(activity, key) in getErrorHistoryFilter(
+              v-for="(activity, key) in $getHistoryFilter(
                 errorHistories,
                 month
               )"
@@ -60,7 +60,7 @@
             </div>
             <!-- 表示データがない場合、下記を表示する -->
             <div
-              v-if="getErrorHistoryFilter(errorHistories, month).length === 0"
+              v-if="$getHistoryFilter(errorHistories, month).length === 0"
               class="ly_activity_item"
             >
               No Error
@@ -110,18 +110,6 @@ export default {
       'targetMonths',
       'errorHistories'
     ])
-  },
-  methods: {
-    getErrorHistoryFilter(array, query) {
-      return array.filter(function(item) {
-        const errorDate = new Date(item.date)
-        const queryDate = new Date(query)
-        return (
-          errorDate.getFullYear() === queryDate.getFullYear() &&
-          errorDate.getMonth() === queryDate.getMonth()
-        )
-      })
-    }
   }
 }
 </script>

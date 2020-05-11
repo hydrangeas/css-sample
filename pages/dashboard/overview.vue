@@ -39,7 +39,7 @@
             </div>
             <!-- 表示付きのデータのみを抽出し、表示する -->
             <div
-              v-for="(activity, key) in getMillingActivityFilter(
+              v-for="(activity, key) in $getHistoryFilter(
                 millingActivities,
                 month
               )"
@@ -58,9 +58,7 @@
             </div>
             <!-- 表示データがない場合、下記を表示する -->
             <div
-              v-if="
-                getMillingActivityFilter(millingActivities, month).length === 0
-              "
+              v-if="$getHistoryFilter(millingActivities, month).length === 0"
               class="ly_activity_item"
             >
               No Milling
@@ -275,21 +273,11 @@ export default {
     },
     getMillingActivity() {
       const data = [
-        { start: '2020/04/01 12:34:56', file: 'abc.prn', status: 'completed' },
-        { start: '2020/04/02 07:52:21', file: 'xxx.prn', status: 'canceled' },
-        { start: '2020/05/02 07:52:21', file: 'xxx.prn', status: 'canceled' }
+        { date: '2020/04/01 12:34:56', file: 'abc.prn', status: 'completed' },
+        { date: '2020/04/02 07:52:21', file: 'xxx.prn', status: 'canceled' },
+        { date: '2020/05/02 07:52:21', file: 'xxx.prn', status: 'canceled' }
       ]
       return data
-    },
-    getMillingActivityFilter(array, query) {
-      return array.filter(function(item) {
-        const startDate = new Date(item.start)
-        const queryDate = new Date(query)
-        return (
-          startDate.getFullYear() === queryDate.getFullYear() &&
-          startDate.getMonth() === queryDate.getMonth()
-        )
-      })
     }
   }
 }

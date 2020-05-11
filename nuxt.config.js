@@ -41,7 +41,8 @@ export default {
   plugins: [
     { src: '@/plugins/inject-getMonthName', ssr: false },
     '~/plugins/inject-getMonthName.js',
-    '~/plugins/inject-getTargetMonths.js'
+    '~/plugins/inject-getTargetMonths.js',
+    '~/plugins/inject-getHistoryFilter.js'
   ],
   /*
    ** Nuxt.js dev-modules
