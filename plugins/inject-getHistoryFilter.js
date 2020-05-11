@@ -1,5 +1,5 @@
 const getHistoryFilter = (array, query) => {
-  return array.filter(function(item) {
+  return (array || []).filter(function(item) {
     const startDate = new Date(item.date)
     const queryDate = new Date(query)
     return (
