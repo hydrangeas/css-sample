@@ -1,24 +1,334 @@
 <template>
   <div>
     <Header />
-    <Contents />
+    <div class="ly_cont ly_cont__col">
+      <aside class="ly_cont_side">
+        <h2 class="el_lv4Heading">
+          Apr 27, 2020
+        </h2>
+        <div class="ly_score_square">
+          <div class="ly_score_container">
+            <canvas id="radar"></canvas>
+          </div>
+        </div>
+        <div class="ly_detail_container">
+          <h4 class="el_detail_header">
+            消耗品
+          </h4>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              ツール #1
+            </div>
+            <div class="el_item_content">
+              012h15m / 025h00m
+            </div>
+          </div>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              ツール #2
+            </div>
+            <div class="el_item_content">
+              012h15m / 025h00m
+            </div>
+          </div>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              ツール #3
+            </div>
+            <div class="el_item_content">
+              012h15m / 025h00m
+            </div>
+          </div>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              ツール #4
+            </div>
+            <div class="el_item_content">
+              012h15m / 025h00m
+            </div>
+          </div>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              ツール #5
+            </div>
+            <div class="el_item_content">
+              012h15m / 025h00m
+            </div>
+          </div>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              ツール #6
+            </div>
+            <div class="el_item_content">
+              012h15m / 025h00m
+            </div>
+          </div>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              ツール #7
+            </div>
+            <div class="el_item_content">
+              012h15m / 025h00m
+            </div>
+          </div>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              ツール #8
+            </div>
+            <div class="el_item_content">
+              012h15m / 025h00m
+            </div>
+          </div>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              ツール #9
+            </div>
+            <div class="el_item_content">
+              012h15m / 025h00m
+            </div>
+          </div>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              ツール #10
+            </div>
+            <div class="el_item_content">
+              012h15m / 025h00m
+            </div>
+          </div>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              ツール #11
+            </div>
+            <div class="el_item_content">
+              012h15m / 025h00m
+            </div>
+          </div>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              ツール #12
+            </div>
+            <div class="el_item_content">
+              012h15m / 025h00m
+            </div>
+          </div>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              ツール #13
+            </div>
+            <div class="el_item_content">
+              012h15m / 025h00m
+            </div>
+          </div>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              ツール #14
+            </div>
+            <div class="el_item_content">
+              012h15m / 025h00m
+            </div>
+          </div>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              ツール #15
+            </div>
+            <div class="el_item_content">
+              012h15m / 025h00m
+            </div>
+          </div>
+        </div>
+        <div class="ly_detail_container">
+          <h4 class="el_detail_header">
+            日次
+          </h4>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              クリーニング
+            </div>
+            <div class="el_item_content">
+              済
+            </div>
+          </div>
+        </div>
+        <div class="ly_detail_container">
+          <h4 class="el_detail_header">
+            定期
+          </h4>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              スピンドル
+            </div>
+            <div class="el_item_content">
+              0120h15m / 2000h00m
+            </div>
+          </div>
+        </div>
+        <div class="ly_detail_container">
+          <h4 class="el_detail_header">
+            予防
+          </h4>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              自動補正
+            </div>
+            <div class="el_item_content">
+              済
+            </div>
+          </div>
+          <div class="bl_item_container">
+            <div class="el_item_title">
+              ならし運転
+            </div>
+            <div class="el_item_content">
+              未
+            </div>
+          </div>
+        </div>
+      </aside>
+      <div class="ly_cont_main">
+        <TabControl :current-page="currentPage" />
+        <div class="ly_heatmap">
+          <Heatmap />
+        </div>
+        <!-- /bl_tabNav -->
+        <div class="ly_activity">
+          <h4 class="el_activity_header">
+            Maintenance Activity
+          </h4>
+          <!-- /el_activity_header -->
+          <div class="ly_activity_monthly">
+            <div class="el_activity_monthly_header">
+              April 2020
+            </div>
+            <div class="ly_activity_item">
+              <div class="el_milling_file setting">
+                abc
+              </div>
+            </div>
+            <div class="ly_activity_item">
+              <div class="el_milling_file setting">
+                abc
+              </div>
+            </div>
+          </div>
+          <!-- /ly_activity_monthly -->
+          <div class="ly_activity_monthly">
+            <div class="el_activity_monthly_header">
+              March 2020
+            </div>
+            <div class="ly_activity_item">
+              No Milling
+            </div>
+          </div>
+          <!-- /ly_activity_monthly -->
+        </div>
+        <!-- /ly_activity -->
+      </div>
+    </div>
     <Footer />
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import Heatmap from '~/components/Heatmap.vue'
+import TabControl from '~/components/library/TabControl.vue'
 import Header from '~/components/Header.vue'
-import Contents from '~/components/dashboard/maintenances/Contents.vue'
 import Footer from '~/components/Footer'
 
 export default {
   components: {
+    Heatmap,
+    TabControl,
     Header,
-    Contents,
     Footer
   },
+  async asyncData({ store }) {
+    await store.dispatch('maintenances/fetchScore')
+    await store.dispatch('maintenances/fetchMaintenanceHistories')
+    await store.dispatch('maintenances/fetchMaintenanceLabels')
+    await store.dispatch('maintenances/fetchMaintenanceActivities')
+  },
   data() {
-    return {}
+    return {
+      currentPage: 'maintenances'
+    }
+  },
+  computed: {
+    ...mapGetters('maintenances', [
+      'score',
+      'maintenanceHistories',
+      'maintenanceLabels',
+      'maintenanceActivities'
+    ])
+  },
+  mounted() {
+    const ctx = document.getElementById('radar')
+    const myRadarChart = new Chart(ctx, { // eslint-disable-line
+      type: 'radar',
+      data: {
+        labels: ['消耗品', '日次', '定期', '予防'],
+        datasets: [
+          {
+            data: this.score,
+            backgroundColor: 'RGBA(115,255,25, 0.5)',
+            borderColor: 'RGBA(115,255,25, 1)',
+            borderWidth: 1,
+            pointBackgroundColor: 'RGB(46,106,177)'
+          }
+        ]
+      },
+      options: {
+        title: false,
+        legend: false,
+        aspectRatio: 1,
+        scale: {
+          pointLabels: {
+            display: true
+          },
+          ticks: {
+            fontSize: 0,
+            min: 0,
+            max: 100,
+            stepSize: 50,
+            callback(value, index, values) {
+              return value
+            }
+          }
+        },
+        tooltips: {
+          enabled: true,
+          callbacks: {
+            label(tooltipItem, data) {
+              return data.datasets[tooltipItem.datasetIndex].data[
+                tooltipItem.index
+              ]
+            }
+          }
+        }
+      }
+    })
   }
 }
 </script>
+<style lang="scss" scoped>
+.ly_detail_container {
+  margin: 15px 30px 0 30px;
+}
+.el_detail_header {
+  font-size: 0.8em;
+  font-weight: 600;
+}
+.bl_item_container {
+  display: flex;
+  margin: 5px 0;
+
+  .el_item_title {
+    font-size: 0.775rem;
+  }
+  .el_item_content {
+    flex-grow: 3;
+    text-align: right;
+    font-size: 0.775rem;
+  }
+}
+</style>
