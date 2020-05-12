@@ -16,6 +16,9 @@
             <li class="bl_headerNav_item">
               <a class="bl_headerNav_link" href="#">お問い合わせ</a>
             </li>
+            <li class="bl_headerNav_item">
+              <a class="bl_headerNav_link" href="#">ログイン</a>
+            </li>
           </ul>
           <!-- /bl_headerNav_item -->
         </nav>
