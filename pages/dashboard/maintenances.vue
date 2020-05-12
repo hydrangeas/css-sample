@@ -195,19 +195,40 @@
             Maintenance Activity
           </h4>
           <!-- /el_activity_header -->
-          <div class="ly_activity_monthly">
+          <div
+            v-for="(month, index) in $getTargetMonths()"
+            :key="index"
+            class="ly_activity_monthly"
+          >
             <div class="el_activity_monthly_header">
-              April 2020
+              {{ $getMonthName(month.getMonth()) + ' ' + month.getFullYear() }}
             </div>
-            <div class="ly_activity_item">
-              <div class="el_milling_file setting">
-                abc
+            <!-- 表示付きのデータのみを抽出し、表示する -->
+            <div
+              v-for="(activity, key) in $getHistoryFilter(
+                maintenanceActivities,
+                month
+              )"
+              :key="key"
+              :class="{ ly_activity_item: true }"
+            >
+              <div
+                :class="{
+                  el_milling_file: true,
+                  setting: true
+                }"
+              >
+                {{ activity.file }}
               </div>
             </div>
-            <div class="ly_activity_item">
-              <div class="el_milling_file setting">
-                abc
-              </div>
+            <!-- 表示データがない場合、下記を表示する -->
+            <div
+              v-if="
+                $getHistoryFilter(maintenanceActivities, month).length === 0
+              "
+              class="ly_activity_item"
+            >
+              No Maintenance
             </div>
           </div>
           <!-- /ly_activity_monthly -->

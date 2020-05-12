@@ -188,9 +188,9 @@ export const actions = {
   },
   fetchMaintenanceActivities({ commit }) {
     const data = [
-      { date: '2020/04/01 12:34:56', file: 'abc.prn', status: 'completed' },
-      { date: '2020/04/02 07:52:21', file: 'xxx.prn', status: 'canceled' },
-      { date: '2020/05/02 07:52:21', file: 'xxx.prn', status: 'canceled' }
+      { date: '2020/04/01 12:34:56', file: 'Cleaning Front' },
+      { date: '2020/04/02 07:52:21', file: 'Change Tool #1' },
+      { date: '2020/05/02 07:52:21', file: 'Change Tool #2' }
     ]
     commit('updateMaintenanceActivities', { maintenanceActivities: data })
   }
