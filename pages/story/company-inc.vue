@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Header />
     <div
       class="ly_jumbotron"
       :style="{ 'background-image': 'url(/images/landscape.jpg)' }"
@@ -90,19 +89,13 @@
         </ul>
       </aside>
     </div>
-    <Footer />
   </div>
 </template>
 
 <script>
-import Header from '~/components/Header.vue'
-import Footer from '~/components/Footer'
-
 export default {
-  components: {
-    Header,
-    Footer
-  },
+  layout: 'promotion',
+  components: {},
   data() {
     return {}
   }

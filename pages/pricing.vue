@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Header />
     <ul class="bl_priceUnit">
       <li class="bl_price">
         <div class="bl_price_header">
@@ -60,18 +59,12 @@
         </div>
       </li>
     </ul>
-    <Footer />
   </div>
 </template>
 <script>
-import Header from '~/components/Header.vue'
-import Footer from '~/components/Footer'
-
 export default {
-  components: {
-    Header,
-    Footer
-  },
+  layout: 'promotion',
+  components: {},
   data() {
     return {}
   }
