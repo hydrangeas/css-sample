@@ -34,7 +34,7 @@ export const actions = {
   fetchMaintenanceHistories({ commit }) {
     const maintenance = []
     // Sat -12
-    maintenance.push(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0)
+    maintenance.push(100, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0)
     // Sat -24
     maintenance.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
     // Sat -36
@@ -91,7 +91,7 @@ export const actions = {
     maintenance.push(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
     commit('updateMaintenanceHistories', { maintenanceHistories: maintenance })
   },
-  updateMaintenanceLabels({ commit }) {
+  fetchMaintenanceLabels({ commit }) {
     const label = []
     // Sat
     label.push('2020/12/01', '2020/04/01', '2020/04/01', '2020/04/01')
@@ -184,7 +184,7 @@ export const actions = {
     label.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
     label.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
     label.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    commit('updateMaintenanceLabels', { teethLabels: label })
+    commit('updateMaintenanceLabels', { maintenanceLabels: label })
   },
   fetchMaintenanceActivities({ commit }) {
     const data = [

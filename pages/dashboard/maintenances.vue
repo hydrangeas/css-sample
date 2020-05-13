@@ -187,7 +187,10 @@
       <div class="ly_cont_main">
         <TabControl :current-page="currentPage" />
         <div class="ly_heatmap">
-          <Heatmap />
+          <Heatmap
+            :heat-map-source="maintenanceHistories"
+            :heat-map-label="maintenanceLabels"
+          />
         </div>
         <!-- /bl_tabNav -->
         <div class="ly_activity">
