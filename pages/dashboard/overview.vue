@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Header />
     <div class="ly_cont ly_cont__col">
       <aside class="ly_cont_side">
         <h2 class="el_lv4Heading">
@@ -69,21 +68,16 @@
         <!-- /ly_activity -->
       </div>
     </div>
-    <Footer />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import Header from '~/components/Header.vue'
-import Footer from '~/components/Footer'
 import Heatmap from '~/components/Heatmap.vue'
 import TabControl from '~/components/library/TabControl.vue'
 
 export default {
   components: {
-    Header,
-    Footer,
     Heatmap,
     TabControl
   },
