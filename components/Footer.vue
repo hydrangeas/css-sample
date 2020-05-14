@@ -1,43 +1,5 @@
 <template>
   <footer>
-    <div class="ly_footer">
-      <div class="ly_footer_inner">
-        <nav>
-          <ul class="bl_footerNav">
-            <li class="bl_footerNav_item">
-              <a class="bl_footerNav_link" href="/">DWINDEX type-D</a>
-              <ul class="bl_footerChildNav">
-                <li class="bl_footerChildNav_item">
-                  <a class="bl_footerChildNav_link" href="#">私たちの強み</a>
-                </li>
-                <li class="bl_footerChildNav_item">
-                  <a class="bl_footerChildNav_link" href="#">
-                    私たちのポリシー
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="bl_footerNav_item">
-              <a class="bl_footerNav_link" href="/">マニュアル</a>
-              <ul class="bl_footerChildNav">
-                <li class="bl_footerChildNav_item">
-                  <a class="bl_footerChildNav_link" href="#">DWX-52DCi</a>
-                </li>
-                <li class="bl_footerChildNav_item">
-                  <a class="bl_footerChildNav_link" href="#">DWX-52DC</a>
-                </li>
-                <li class="bl_footerChildNav_item">
-                  <a class="bl_footerChildNav_link" href="#">DWX-52D</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <!-- /bl_footerNav_item -->
-        </nav>
-      </div>
-      <!-- /ly_footer_inner -->
-    </div>
-    <!-- /ly_footer -->
     <div class="ly_footer hp_btGray">
       <div class="ly_footer_inner">
         <small class="el_footerCopyright">© 2019 Company</small>
@@ -46,7 +8,7 @@
     </div>
   </footer>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 .ly_footer {
   padding-top: 10px;
   padding-bottom: 10px;
