@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Header from '~/components/Header'
+import Header from '~/components/HeaderPromotion'
 import Footer from '~/components/FooterPromotion'
 
 export default {

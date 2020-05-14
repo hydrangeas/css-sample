@@ -4,8 +4,36 @@
       <div class="ly_header_inner">
         <nav>
           <ul class="bl_headerNav">
-            <li class="bl_headerNav_item">
+            <li class="bl_headerNav_item hp_logo">
               <a class="bl_headerNav_link" href="/">DWINDEX type-D</a>
+            </li>
+          </ul>
+          <!-- /bl_headerNav_item -->
+        </nav>
+      </div>
+      <!-- /ly_header_inner -->
+      <div class="ly_header_inner">
+        <nav>
+          <ul class="bl_headerNav">
+            <li class="bl_headerNav_item">
+              <nuxt-link class="bl_headerNav_link" to="/">
+                概要
+              </nuxt-link>
+            </li>
+            <li class="bl_headerNav_item">
+              <nuxt-link class="bl_headerNav_link" to="/pricing">
+                価格表
+              </nuxt-link>
+            </li>
+            <li class="bl_headerNav_item">
+              <nuxt-link class="bl_headerNav_link" to="/story/company-inc">
+                お客様事例
+              </nuxt-link>
+            </li>
+            <li class="bl_headerNav_item">
+              <nuxt-link class="bl_headerNav_link" to="/">
+                お問い合わせ
+              </nuxt-link>
             </li>
           </ul>
           <!-- /bl_headerNav_item -->
@@ -36,6 +64,7 @@
 }
 
 .bl_headerNav_item {
+  font-size: 0.85rem;
   &:last-child {
     content: none;
   }
@@ -44,6 +73,9 @@
       content: none;
     }
   }
+}
+.hp_logo {
+  font-size: 1.5rem;
 }
 
 .bl_headerNav_link {
