@@ -169,6 +169,26 @@ export default {
     }
   }
 }
+@media screen and (max-width: 560px) {
+  .ly_jumbotron {
+    background-color: #333;
+    background-position: center center;
+    background-size: cover;
+    padding: 50px 0 35px 0;
+  }
+  .bl_jumbotron_inner {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .bl_callSales {
+    margin: 40px auto;
+  }
+  .el_afterIconBtn {
+    text-align: center;
+    width: 90%;
+  }
+}
 .bl_benefit_title {
   color: #fff;
   font-size: 1.5em;
