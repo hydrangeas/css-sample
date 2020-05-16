@@ -159,6 +159,25 @@
   text-decoration: underline;
 }
 
+@media screen and (max-width: 560px) {
+  .bl_footerNav {
+    display: block;
+  }
+  .bl_footerNav_item {
+    width: 100%;
+    padding: 2px 0;
+  }
+  .bl_footerNav_link {
+    font-size: 1rem;
+  }
+  .bl_footerChildNav_link {
+    font-size: 0.9rem;
+  }
+  .bl_footerChildNav_item {
+    margin-bottom: 16px;
+  }
+}
+
 .el_footerCopyright {
   display: block;
   color: #ddd;
