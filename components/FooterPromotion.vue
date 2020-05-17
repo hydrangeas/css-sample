@@ -166,6 +166,7 @@
   .bl_footerNav_item {
     width: 100%;
     padding: 2px 0;
+    margin-top: 10px;
   }
   .bl_footerNav_link {
     font-size: 1rem;
