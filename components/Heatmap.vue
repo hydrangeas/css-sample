@@ -1,5 +1,5 @@
 <template>
-  <div style="position: relative; width:100%">
+  <div class="ly_heatMapContainer hp_switchDisplay">
     <canvas id="heatMap" />
   </div>
 </template>
@@ -166,3 +166,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.ly_heatMapContainer {
+  position: relative;
+  width: 100%;
+}
+</style>
