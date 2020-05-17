@@ -83,6 +83,8 @@ $breakPoints: (
 @media screen and (max-width: 560px) {
   .ly_cont {
     display: block;
+    padding: 15px 15px;
+
     &.ly_cont__col {
       display: block;
     }

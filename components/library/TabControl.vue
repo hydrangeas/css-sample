@@ -67,4 +67,9 @@ export default {
     white-space: nowrap;
   }
 }
+@media screen and (max-width: 560px) {
+  .bl_tabNav_inner {
+  margin-bottom: 0px;
+  }
+}
 </style>
