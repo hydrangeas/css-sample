@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="ly_cont ly_cont__col">
+      <tab-control-mobile :current-page="currentPage" />
       <aside class="ly_cont_side">
         <h2 class="el_lv4Heading">
           Apr 27, 2020
@@ -16,7 +17,7 @@
         </div>
       </aside>
       <div class="ly_cont_main">
-        <TabControl :current-page="currentPage" />
+        <tab-control-pc :current-page="currentPage" />
         <div class="ly_heatmap">
           <Heatmap
             :heat-map-source="errorCounts"
@@ -76,12 +77,14 @@
 <script>
 import { mapGetters } from 'vuex'
 import Heatmap from '~/components/Heatmap.vue'
-import TabControl from '~/components/library/TabControl.vue'
+import TabControlMobile from '~/components/library/TabControlMobile.vue'
+import TabControlPc from '~/components/library/TabControlPc.vue'
 
 export default {
   components: {
     Heatmap,
-    TabControl
+    TabControlMobile,
+    TabControlPc
   },
   props: {},
   async asyncData({ store }) {
