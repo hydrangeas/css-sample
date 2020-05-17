@@ -1,5 +1,5 @@
 <template>
-  <div class="ly_heatMapContainer hp_switchDisplay">
+  <div class="ly_heatMapContainer">
     <canvas id="heatMap" />
   </div>
 </template>
@@ -171,5 +171,10 @@ export default {
 .ly_heatMapContainer {
   position: relative;
   width: 100%;
+}
+@media screen and (max-width: 560px) {
+  .ly_heatMapContainer {
+    display: none;
+  }
 }
 </style>

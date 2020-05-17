@@ -65,27 +65,6 @@ $breakPoints: (
   font-family: 'Abril Fatface', cursive;
   font-size: 8em;
 }
-@media screen and (min-width:560px) { 
-  .hp_aside_mobile {
-    display: none;
-  }
-  .hp_aside_pc {
-    display: block;
-  }
-}
-@media screen and (max-width:560px) { 
-  .hp_aside_mobile {
-    display: block;
-  }
-  .hp_aside_pc {
-    display: none;
-  }
-}
-@media screen and (max-width: 560px) {
-  .hp_switchDisplay {
-    display: none;
-  }
-}
 
 // for Contents
 @import url('https://use.fontawesome.com/releases/v5.13.0/css/all.css');
