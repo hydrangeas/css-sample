@@ -268,6 +268,25 @@ export default {
     }
   }
 }
+@media screen and (max-width: 560px) {
+  .ly_description {
+    padding: 30px 0px;
+  }
+  .bl_slogan {
+    display: block;
+    .bl_slogan_left,
+    .bl_slogan_right {
+      &.el_left_image,
+      &.el_right_image {
+        text-align: center;
+        flex: 2;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
 .bl_cardUnit {
   margin-top: 60px;
   display: flex;
