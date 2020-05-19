@@ -90,7 +90,6 @@ export default {
   async asyncData({ store }) {
     await store.dispatch('errors/fetchStopTime')
     await store.dispatch('errors/fetchErrorCounts')
-    await store.dispatch('errors/fetchHistoryLabels')
     await store.dispatch('errors/fetchTargetMonths')
     await store.dispatch('errors/fetchErrorHistories')
   },
