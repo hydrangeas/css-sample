@@ -43,7 +43,7 @@ export const actions = {
     const labels = []
     await axios
       .get(
-        'https://gist.githubusercontent.com/hydrangeas/c34f17884aea766f54717a7e860be562/raw/8f22c7c0c3be5f50841c923af231d845d0abfa98/SampleData'
+        'https://gist.githubusercontent.com/hydrangeas/c34f17884aea766f54717a7e860be562/raw/e5fba69f14dc4c3e6ef7ad6b9e954a2c23fcaeec/SampleData'
       )
       .then((response) => {
         const json = response.data

@@ -31,22 +31,21 @@ export default {
         }
         return dlist
       }
+    },
+    heatMapKind: {
+      type: Number,
+      default() {
+        return 0
+      }
     }
   },
   data() {
     return {}
   },
-  beforeUpdate() {
-    // eslint-disable-next-line
-    console.log(this.heatMapSource)
-  },
-  updated() {
-    // eslint-disable-next-line
-    console.log(this.heatMapSource)
-  },
   mounted() {
     const _heatMapSource = this.heatMapSource
     const _heatMapLabel = this.heatMapLabel
+    const _heatMapKind = this.heatMapKind
     const ctx = document.getElementById('heatMap').getContext('2d')
     const heatMap = new Chart(ctx, { // eslint-disable-line
       type: 'horizontalBar',
@@ -118,7 +117,12 @@ export default {
               const x = tooltipItem.datasetIndex
               const y = mapWidth - tooltipItem.index - 1
               const val = _heatMapSource[x + y * mapHeight]
-              return val === 0 ? 'No milled' : '' + val + ' milled'
+
+              if (_heatMapKind === 0) {
+                return val === 0 ? 'No milled' : '' + val + ' milled'
+              } else if (_heatMapKind === 1) {
+                return val === 0 ? 'No Error' : '' + val + ' minutes'
+              }
             }
           }
         }
@@ -142,21 +146,32 @@ export default {
     },
     generateColor(x) {
       const datasetColors = []
-      let teeth = 0
+      let data = 0
       let opa = 0
       for (let y = 0; y < mapHeight; y++) {
-        teeth = this.heatMapSource[x + (mapWidth - y - 1) * mapHeight]
+        data = this.heatMapSource[x + (mapWidth - y - 1) * mapHeight]
         opa = 0.3
 
-        if (teeth >= 1) {
-          if (teeth >= 20) {
-            opa = 1.0
-          } else if (teeth >= 10) {
-            opa = 0.8
-          } else if (teeth >= 5) {
-            opa = 0.6
+        if (data >= 1) {
+          if (this.heatMapKind === 0) {
+            if (data >= 20) {
+              opa = 1.0
+            } else if (data >= 10) {
+              opa = 0.8
+            } else if (data >= 5) {
+              opa = 0.6
+            }
+            datasetColors.push('rgba(135,206,235,' + opa + ')')
+          } else if (this.heatMapKind === 1) {
+            if (data >= 120) {
+              opa = 1.0
+            } else if (data >= 60) {
+              opa = 0.8
+            } else if (data >= 5) {
+              opa = 0.6
+            }
+            datasetColors.push('rgba(255,100,100,' + opa + ')')
           }
-          datasetColors.push('rgba(135,206,235,' + opa + ')')
         } else {
           datasetColors.push('rgba(239,239,239,' + opa + ')')
         }

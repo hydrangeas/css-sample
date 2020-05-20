@@ -22,6 +22,7 @@
           <Heatmap
             :heat-map-source="errorCounts"
             :heat-map-label="historyLabels"
+            :heat-map-kind="1"
           />
         </div>
         <!-- /bl_tabNav -->
