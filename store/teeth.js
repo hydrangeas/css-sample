@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export const state = () => ({
   teeth: 0,
   teethHistories: [],
@@ -31,160 +33,50 @@ export const actions = {
   fetchTeeth({ commit }) {
     commit('updateTeeth', { teeth: 21 })
   },
-  fetchTeethHistories({ commit }) {
-    const teeth = []
-    // Sat -12
-    teeth.push(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0)
-    // Sat -24
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Sat -36
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Sat -48
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Fri -12
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Fri -24
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Fri -36
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Fri -48
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Thu -12
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Thu -24
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Thu -36
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Thu -48
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Wed -12
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Wed -24
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Wed -36
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Wed -48
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Tue -12
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Tue -24
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Tue -36
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Tue -48
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Mon -12
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Mon -24
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Mon -36
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Mon -48
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Sun -12
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Sun -24
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Sun -36
-    teeth.push(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    // Sun -48
-    teeth.push(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-    commit('updateTeethHistories', { teethHistories: teeth })
-  },
-  fetchTeethLabels({ commit }) {
-    const teethLabel = []
-    // Sat
-    teethLabel.push('2020/12/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    // Fri
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    // Thu
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    // Wed
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    // Tue
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    // Mon
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    // Sun
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    teethLabel.push('2020/04/01', '2020/04/01', '2020/04/01', '2020/04/01')
-    commit('updateTeethLabels', { teethLabels: teethLabel })
+  async fetchTeethHistories({ commit }) {
+    const counts = []
+    const labels = []
+    await axios
+      .get(
+        'https://gist.githubusercontent.com/hydrangeas/1ada34517140487aaa99964c5f29b796/raw/653a71d370adf48497f2a2b5e74e468804ae0d4c/SampleTeeth.json'
+      )
+      .then((response) => {
+        const json = response.data
+        const myFilter = (array, query) => {
+          return array.filter((element) => {
+            if (element.DayOfWeek.includes(query)) return true
+            return false
+          })
+        }
+        const mySort = (a, b) => {
+          return new Date(a.Date).getTime() - new Date(b.Date).getTime()
+        }
+        const addData = (array) => {
+          array.forEach((element) => {
+            counts.push(element.Data)
+            labels.push(element.Date)
+          })
+        }
+
+        // Sat
+        addData(myFilter(json, 'Sat').sort(mySort))
+        // Fri
+        addData(myFilter(json, 'Fri').sort(mySort))
+        // Thu
+        addData(myFilter(json, 'Thu').sort(mySort))
+        // Wed
+        addData(myFilter(json, 'Wed').sort(mySort))
+        // Tue
+        addData(myFilter(json, 'Tue').sort(mySort))
+        // Mon
+        addData(myFilter(json, 'Mon').sort(mySort))
+        // Sun
+        addData(myFilter(json, 'Sun').sort(mySort))
+
+        // eslint-disable-next-line
+        commit('updateTeethHistories', { teethHistories: counts })
+        commit('updateTeethLabels', { teethLabels: labels })
+      })
   },
   fetchMillingActivities({ commit }) {
     const data = [

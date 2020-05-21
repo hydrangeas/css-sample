@@ -88,7 +88,6 @@ export default {
   async asyncData({ store }) {
     await store.dispatch('teeth/fetchTeeth')
     await store.dispatch('teeth/fetchTeethHistories')
-    await store.dispatch('teeth/fetchTeethLabels')
     await store.dispatch('teeth/fetchMillingActivities')
   },
   data() {
