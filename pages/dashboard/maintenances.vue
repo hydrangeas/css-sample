@@ -190,6 +190,7 @@
           <Heatmap
             :heat-map-source="maintenanceHistories"
             :heat-map-label="maintenanceLabels"
+            :heat-map-kind="2"
           />
         </div>
         <!-- /bl_tabNav -->
@@ -266,7 +267,6 @@ export default {
   async asyncData({ store }) {
     await store.dispatch('maintenances/fetchScore')
     await store.dispatch('maintenances/fetchMaintenanceHistories')
-    await store.dispatch('maintenances/fetchMaintenanceLabels')
     await store.dispatch('maintenances/fetchMaintenanceActivities')
   },
   data() {

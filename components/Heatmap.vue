@@ -119,9 +119,11 @@ export default {
               const val = _heatMapSource[x + y * mapHeight]
 
               if (_heatMapKind === 0) {
-                return val === 0 ? 'No milled' : '' + val + ' milled'
+                return val === 0 ? 'No Milled' : '' + val + ' milled'
               } else if (_heatMapKind === 1) {
                 return val === 0 ? 'No Error' : '' + val + ' minutes'
+              } else if (_heatMapKind === 2) {
+                return val === 0 ? 'No Maintenance' : '' + val + ' times'
               }
             }
           }
@@ -171,6 +173,15 @@ export default {
               opa = 0.6
             }
             datasetColors.push('rgba(255,100,100,' + opa + ')')
+          } else if (this.heatMapKind === 2) {
+            if (data >= 6) {
+              opa = 1.0
+            } else if (data >= 4) {
+              opa = 0.8
+            } else if (data >= 1) {
+              opa = 0.6
+            }
+            datasetColors.push('rgba(128,255,128,' + opa + ')')
           }
         } else {
           datasetColors.push('rgba(239,239,239,' + opa + ')')
