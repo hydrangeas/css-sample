@@ -3,9 +3,14 @@
     <div class="ly_header">
       <div class="ly_header_inner">
         <nav>
-          <ul class="bl_headerNav">
+          <ul class="bl_headerNav hp_topMenu">
             <li class="bl_headerNav_item">
               <a class="bl_headerNav_link" href="/">DWINDEX type-D</a>
+            </li>
+            <li class="bl_headerNav_item hp_signout">
+              <nuxt-link class="bl_headerNav_link" to="/">
+                サインアウト
+              </nuxt-link>
             </li>
           </ul>
           <!-- /bl_headerNav_item -->
@@ -44,6 +49,13 @@
       content: none;
     }
   }
+}
+.hp_topMenu {
+  justify-content: space-between;
+}
+.hp_signout {
+  margin: auto 0;
+  font-size: 0.85rem;
 }
 
 .bl_headerNav_link {
