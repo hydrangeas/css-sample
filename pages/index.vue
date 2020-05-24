@@ -307,6 +307,16 @@ export default {
     }
   }
 }
+@media screen and (max-width: 560px) {
+  .bl_cardUnit.bl_cardUnit__col3 {
+    margin-bottom: -20px;
+  }
+  .bl_cardUnit > .bl_card {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-right: 0;
+  }
+}
 
 .bl_card {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
