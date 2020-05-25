@@ -6,7 +6,7 @@
     >
       <div class="bl_jumbotron_inner">
         <h1 class="bl_jumbotron_ttl">
-          無停止で稼働し続けるには、道具の状態を正しく保ちます。
+          24時間365日稼働させる。
         </h1>
         <div class="bl_callSales">
           <a href="" class="el_afterIconBtn el_afterIconBtn__call">
